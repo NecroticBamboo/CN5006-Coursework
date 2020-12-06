@@ -1,0 +1,120 @@
+date,county,state,cases,deaths
+21/01/2020,Snohomish,Washington,1,0
+22/01/2020,Snohomish,Washington,1,0
+23/01/2020,Snohomish,Washington,1,0
+24/01/2020,Cook,Illinois,1,0
+24/01/2020,Snohomish,Washington,1,0
+25/01/2020,Orange,California,1,0
+25/01/2020,Cook,Illinois,1,0
+25/01/2020,Snohomish,Washington,1,0
+26/01/2020,Maricopa,Arizona,1,0
+26/01/2020,Los Angeles,California,1,0
+26/01/2020,Orange,California,1,0
+26/01/2020,Cook,Illinois,1,0
+26/01/2020,Snohomish,Washington,1,0
+27/01/2020,Maricopa,Arizona,1,0
+27/01/2020,Los Angeles,California,1,0
+27/01/2020,Orange,California,1,0
+27/01/2020,Cook,Illinois,1,0
+27/01/2020,Snohomish,Washington,1,0
+28/01/2020,Maricopa,Arizona,1,0
+28/01/2020,Los Angeles,California,1,0
+28/01/2020,Orange,California,1,0
+28/01/2020,Cook,Illinois,1,0
+28/01/2020,Snohomish,Washington,1,0
+29/01/2020,Maricopa,Arizona,1,0
+29/01/2020,Los Angeles,California,1,0
+29/01/2020,Orange,California,1,0
+29/01/2020,Cook,Illinois,1,0
+29/01/2020,Snohomish,Washington,1,0
+30/01/2020,Maricopa,Arizona,1,0
+30/01/2020,Los Angeles,California,1,0
+30/01/2020,Orange,California,1,0
+30/01/2020,Cook,Illinois,2,0
+30/01/2020,Snohomish,Washington,1,0
+31/01/2020,Maricopa,Arizona,1,0
+31/01/2020,Los Angeles,California,1,0
+31/01/2020,Orange,California,1,0
+31/01/2020,Santa Clara,California,1,0
+31/01/2020,Cook,Illinois,2,0
+31/01/2020,Snohomish,Washington,1,0
+01/02/2020,Maricopa,Arizona,1,0
+01/02/2020,Los Angeles,California,1,0
+01/02/2020,Orange,California,1,0
+01/02/2020,Santa Clara,California,1,0
+01/02/2020,Cook,Illinois,2,0
+01/02/2020,Suffolk,Massachusetts,1,0
+01/02/2020,Snohomish,Washington,1,0
+02/02/2020,Maricopa,Arizona,1,0
+02/02/2020,Los Angeles,California,1,0
+02/02/2020,Orange,California,1,0
+02/02/2020,San Francisco,California,2,0
+02/02/2020,Santa Clara,California,2,0
+02/02/2020,Cook,Illinois,2,0
+02/02/2020,Suffolk,Massachusetts,1,0
+02/02/2020,Snohomish,Washington,1,0
+03/02/2020,Maricopa,Arizona,1,0
+03/02/2020,Los Angeles,California,1,0
+03/02/2020,Orange,California,1,0
+03/02/2020,San Francisco,California,2,0
+03/02/2020,Santa Clara,California,2,0
+03/02/2020,Cook,Illinois,2,0
+03/02/2020,Suffolk,Massachusetts,1,0
+03/02/2020,Snohomish,Washington,1,0
+04/02/2020,Maricopa,Arizona,1,0
+04/02/2020,Los Angeles,California,1,0
+04/02/2020,Orange,California,1,0
+04/02/2020,San Francisco,California,2,0
+04/02/2020,Santa Clara,California,2,0
+04/02/2020,Cook,Illinois,2,0
+04/02/2020,Suffolk,Massachusetts,1,0
+04/02/2020,Snohomish,Washington,1,0
+05/02/2020,Maricopa,Arizona,1,0
+05/02/2020,Los Angeles,California,1,0
+05/02/2020,Orange,California,1,0
+05/02/2020,San Francisco,California,2,0
+05/02/2020,Santa Clara,California,2,0
+05/02/2020,Cook,Illinois,2,0
+05/02/2020,Suffolk,Massachusetts,1,0
+05/02/2020,Snohomish,Washington,1,0
+05/02/2020,Dane,Wisconsin,1,0
+06/02/2020,Maricopa,Arizona,1,0
+06/02/2020,Los Angeles,California,1,0
+06/02/2020,Orange,California,1,0
+06/02/2020,San Francisco,California,2,0
+06/02/2020,Santa Clara,California,2,0
+06/02/2020,Cook,Illinois,2,0
+06/02/2020,Suffolk,Massachusetts,1,0
+06/02/2020,Snohomish,Washington,1,0
+06/02/2020,Dane,Wisconsin,1,0
+07/02/2020,Maricopa,Arizona,1,0
+07/02/2020,Los Angeles,California,1,0
+07/02/2020,Orange,California,1,0
+07/02/2020,San Francisco,California,2,0
+07/02/2020,Santa Clara,California,2,0
+07/02/2020,Cook,Illinois,2,0
+07/02/2020,Suffolk,Massachusetts,1,0
+07/02/2020,Snohomish,Washington,1,0
+07/02/2020,Dane,Wisconsin,1,0
+08/02/2020,Maricopa,Arizona,1,0
+08/02/2020,Los Angeles,California,1,0
+08/02/2020,Orange,California,1,0
+08/02/2020,San Francisco,California,2,0
+08/02/2020,Santa Clara,California,2,0
+08/02/2020,Cook,Illinois,2,0
+08/02/2020,Suffolk,Massachusetts,1,0
+08/02/2020,Snohomish,Washington,1,0
+08/02/2020,Dane,Wisconsin,1,0
+09/02/2020,Maricopa,Arizona,1,0
+09/02/2020,Los Angeles,California,1,0
+09/02/2020,Orange,California,1,0
+09/02/2020,San Francisco,California,2,0
+09/02/2020,Santa Clara,California,2,0
+09/02/2020,Cook,Illinois,2,0
+09/02/2020,Suffolk,Massachusetts,1,0
+09/02/2020,Snohomish,Washington,1,0
+09/02/2020,Dane,Wisconsin,1,0
+10/02/2020,Maricopa,Arizona,1,0
+10/02/2020,Los Angeles,California,1,0
+10/02/2020,Orange,California,1,0
+10/02/2020,San Diego,California,1,0

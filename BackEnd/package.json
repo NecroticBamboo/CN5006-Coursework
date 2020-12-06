@@ -10,7 +10,10 @@
   "license": "ISC",
   "dependencies": {
     "cors": "^2.8.5",
+    "datejs": "^1.0.0-rc3",
     "express": "^4.17.1",
+    "fast-csv": "^4.3.6",
+    "fs": "0.0.1-security",
     "mongo": "^0.1.0",
     "mongoose": "^5.11.2"
   }
