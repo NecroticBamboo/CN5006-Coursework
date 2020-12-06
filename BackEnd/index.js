@@ -10,6 +10,23 @@ const datejs = require("datejs");
 let stream = fs.createReadStream("TestData.csv");
 let csvData = [];
 
+async function initCollection(csvData){
+    console.log(csvData.length);
+
+    await CovidInfo.deleteMany({});
+
+    try {
+        res = await CovidInfo.insertMany(csvData);
+        console.log(`Inserted: multiple rows `);
+
+        count = await CovidInfo.countDocuments();
+        console.log("Total documents Count:",count);
+    }
+    catch (err) {
+        console.log('An error occured '+err);
+    }
+};
+
 let csvStream=fastcsv.parse().on("data",function(data){
     d = {
         _id: data[0]+"-"+data[1]+"-"+data[2],
@@ -24,27 +41,7 @@ let csvStream=fastcsv.parse().on("data",function(data){
 
 }).on("end",function(){
     csvData.shift();
-
-    console.log(csvData.length);
-
-    CovidInfo.deleteMany({}).exec().then(insert=>{
-        CovidInfo.insertMany(csvData,(err, res) => {
-                if (err) {
-                    console.log('An error occured '+err);
-                } else {
-                    console.log(`Inserted: multiple rows `);
-
-                CovidInfo.countDocuments()
-                .exec()
-                .then(count =>{
-                    console.log("Total documents Count:",count);
-                }).catch(err =>{
-                    console.log(err);
-                });
-            }
-    }); 
-})
+    initCollection(csvData);
 });
 
 stream.pipe(csvStream);
-
