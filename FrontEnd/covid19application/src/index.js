@@ -3,10 +3,11 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import Covid_Form from'./SubFiles/AddCovid'
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Covid_Form />
   </React.StrictMode>,
   document.getElementById('root')
 );
