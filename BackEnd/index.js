@@ -3,6 +3,12 @@ let CovidInfo=require('./Covid19Information');
 let mongodbConnected=require('./MongoDBConnection');
 const cors=require('cors');
 
+var app=express();
+var bodyParser=require("body-parser");
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended:false}));
+// app.use(cors);
+
 const fs = require("fs");
 const fastcsv = require("fast-csv");
 const datejs = require("datejs");
@@ -45,3 +51,53 @@ let csvStream=fastcsv.parse().on("data",function(data){
 });
 
 stream.pipe(csvStream);
+
+app.get('/getAllRecords',function(req,res){
+    CovidInfo.find(function(err,info){
+        if(err){
+            console.log(err);
+        } else {
+            res.json(info);
+        }
+    });
+});
+
+app.post('/addNewRecord',function(req,res){
+    let newRecord= req.body;
+    console.log("New Record: ",newRecord);
+    
+    newRecord.save().then(todo=>{
+        res.status(200).json({'Records': 'record added successfully'});
+    }).catch(err=>{
+        res.status(400).send('adding new record failed');
+    })
+});
+
+app.post('/updateRecord/:state/:county',function(req,res){
+
+});
+
+app.post('/deleteRecord/:state/:county',function(req,res){
+
+});
+
+app.get('/showDeaths/:state/:county',function(req,res){
+
+});
+
+app.get('/get20Documents/:date/:state',function(req,res){
+
+});
+
+app.get('/getDeathsMore/:number',function(req,res){
+
+});
+
+app.get('/getComputerInfo',function(req,res){
+
+});
+
+
+app.listen(5000,function(){
+    console.log("Server is running on the port 5000")
+});

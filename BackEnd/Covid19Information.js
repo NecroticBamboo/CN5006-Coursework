@@ -1,4 +1,5 @@
 let mongoose = require('mongoose');
+
 const CovidInfo= new mongoose.Schema({
     _id: String,
     date: Date,

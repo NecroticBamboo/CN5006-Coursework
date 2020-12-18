@@ -1,16 +1,18 @@
 import React, {useState} from 'react';
 import axios from 'axios';
 
-function Covid_Form() {
+// const datejs = require("datejs");
+
+const Covid_Form = () =>{
     const [state, setState] = useState({
     date: "",
     county: "",
     state: "",
-    cases:0 ,
+    cases: 0,
     deaths: 0,
     })
 
-    let url ="http://localhost:3000/"
+    let url ="http://localhost:5000/"
     const handleChange = (e) =>{
         const value = e.target.value;
 
@@ -21,18 +23,20 @@ function Covid_Form() {
     }
 
     const onSubmit = (e) => {
-        alert("Total deaths so far: "+ state.deaths)
+        alert("Total deaths so far: " + state.deaths)
         e.preventDefault();
         const CovidData = {
-            date:state.date,
-            county:state.date,
+            _id:"testId",
+            date: Date.parseExact(state.date,"d/M/yyyy"),
+            county:state.county,
             state:state.state,
             cases: state.cases,
             deaths:state.deaths
         }
-        axios.post (url + "Add Covid Data", CovidData)
+        axios.post(url + "addNewRecord", CovidData)
         .then( res => console.log(res.data));
     }
+
     return(
         <div style ={{marginTop:12}} >
             <h1>Add Covid Data</h1>
@@ -124,6 +128,8 @@ function Covid_Form() {
                     <label>Deaths: </label>
                     <input className = "form-control" type="number" name = "deaths" value = {state.deaths} onChange = {handleChange}/>
                 </div>
+
+                <input type="submit" value="Submit"/>
             </form>
         </div>
     )
