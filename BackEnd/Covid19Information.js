@@ -12,4 +12,4 @@ const CovidInfo= new mongoose.Schema({
 });
 
 
-module.exports=mongoose.model('covidModel',CovidInfo,'Covid19Data');
+module.exports = mongoose.model('covidModel',CovidInfo,'Covid19Data');

@@ -4,10 +4,15 @@ let mongodbConnected=require('./MongoDBConnection');
 const cors=require('cors');
 
 var app=express();
+
 var bodyParser=require("body-parser");
+var corsOptions = {
+    origin: '*',
+    optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
+  }
+app.use(cors(corsOptions));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:false}));
-// app.use(cors);
 
 const fs = require("fs");
 const fastcsv = require("fast-csv");
@@ -62,11 +67,13 @@ app.get('/getAllRecords',function(req,res){
     });
 });
 
-app.post('/addNewRecord',function(req,res){
+app.post('/addNewRecord', async function(req,res){
     let newRecord= req.body;
     console.log("New Record: ",newRecord);
     
-    newRecord.save().then(todo=>{
+    // console.log("CovidInfo: ",CovidInfo);
+    
+    res = await CovidInfo.insertMany([newRecord]).then(todo=>{
         res.status(200).json({'Records': 'record added successfully'});
     }).catch(err=>{
         res.status(400).send('adding new record failed');

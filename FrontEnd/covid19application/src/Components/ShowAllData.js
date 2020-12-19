@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React, { Component } from 'react';
 
-// import DataTable from './DataTable';
+import DataTable from './DataTable';
 
 export default class showAllData extends Component{
 
@@ -22,8 +22,8 @@ export default class showAllData extends Component{
     
     dataTable() {
         return this.state.Covid19Data.map((data, i) => {
-            // return <DataTable obj={data} key={i} />;
-            return <tr><td>Something</td></tr>;
+            return <DataTable obj={data} key={i} />;
+            // return <tr><td>Something</td></tr>;
         });
 
         // return <tr><td>Something</td></tr>;
