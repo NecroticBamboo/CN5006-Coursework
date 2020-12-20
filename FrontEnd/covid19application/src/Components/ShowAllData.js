@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React, { Component } from 'react';
-
 import DataTable from './DataTable';
+
 
 export default class showAllData extends Component{
 

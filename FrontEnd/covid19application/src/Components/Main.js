@@ -6,6 +6,7 @@ import showAllData from './ShowAllData'
 
 const Main = () =>{
     return(
+        
         <main>
             <Switch>
                 <Route exact path='/' component={Home}/>

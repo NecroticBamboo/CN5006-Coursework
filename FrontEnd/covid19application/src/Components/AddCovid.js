@@ -5,11 +5,11 @@ const datejs = require("datejs");
 
 const Covid_Form = () =>{
     const [state, setState] = useState({
-    date: new Date().toString("yyyy-M-d"),
+    date: new Date().toString("yyyy-MM-dd"),
     county: "",
     state: "NY",
-    cases: 0,
-    deaths: 0,
+    cases: null,
+    deaths: null,
     })
 
     let url ="http://localhost:5000/"
@@ -62,7 +62,7 @@ const Covid_Form = () =>{
                 </div> */}
 
                 <div className = "form-group">
-                    <label> Choose State: {" "}
+                    <label>State: {" "}
                         <select className = "form-control"
                         name ="state" value = {state.state} onChange = {handleChange}>
                             <option value ="Alabama">Alabama</option>
@@ -132,8 +132,12 @@ const Covid_Form = () =>{
                     <label>Deaths: </label>
                     <input className = "form-control" type="number" name = "deaths" value = {state.deaths} onChange = {handleChange}/>
                 </div>
-
-                <input type="submit" value="Submit"/>
+                    <div className="form-group">
+                        <center>
+                            <input type="submit" value="Add Covid Data" className="btn btn-primary" />
+                        </center>                
+                </div>
+               
             </form>
         </div>
     )
