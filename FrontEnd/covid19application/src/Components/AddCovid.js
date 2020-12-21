@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import axios from 'axios';
 
-const datejs = require("datejs");
+// const datejs = require("datejs");
 
 const Covid_Form = () =>{
     const [state, setState] = useState({
@@ -37,7 +37,7 @@ const Covid_Form = () =>{
             deaths:state.deaths
         }
 
-        console.log(CovidData);
+        alert.log("New Record added: "); //display record in alert
         axios.post(url + "addNewRecord", CovidData);
     }
 
@@ -122,7 +122,6 @@ const Covid_Form = () =>{
                         </select>
                     </label>
                 </div>
-
 
                  <div className = "form-group">
                     <label>Cases: </label>

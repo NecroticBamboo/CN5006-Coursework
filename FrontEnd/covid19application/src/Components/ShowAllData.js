@@ -23,10 +23,7 @@ export default class showAllData extends Component{
     dataTable() {
         return this.state.Covid19Data.map((data, i) => {
             return <DataTable obj={data} key={i} />;
-            // return <tr><td>Something</td></tr>;
         });
-
-        // return <tr><td>Something</td></tr>;
     }
 
     render() {
@@ -36,7 +33,7 @@ export default class showAllData extends Component{
                     <table>
                         <thead>
                             <tr>
-                                <td>ID</td>
+                                {/* <td>ID</td> */}
                                 <td>Date</td>
                                 <td>County</td>
                                 <td>State</td>
