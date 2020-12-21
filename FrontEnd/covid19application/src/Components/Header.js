@@ -6,8 +6,8 @@ const Header = () =>{
         <header>
             <nav  class = "navigation-bar">
                 <ul>
-                    <li ><Link to='/'>Home</Link></li>
-                    <li><Link class="active" to='/addCovid'>Add Covid</Link></li>
+                    <li ><Link   to='/'>Home</Link></li>
+                    <li><Link  to='/addCovid'>Add Covid</Link></li>
                     <li><Link to='/getAllRecords'>Show all Data</Link></li>
                     {/* <li><Link to='/updateRecord'>Update Cases and Deaths</Link></li> */}
                     {/* <li><Link to='/getCasesAndDeaths'>Get Number of Cases and Deaths</Link></li> */}

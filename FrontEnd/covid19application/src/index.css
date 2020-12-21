@@ -54,6 +54,12 @@ li a:hover {
 li a:active {
   color: black;
 }
+.navigation-bar li a:active {
+  background-color: white;
+  color: black;
+
+}
+
 
 /* End of nav bar */
 
