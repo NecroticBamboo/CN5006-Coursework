@@ -132,8 +132,8 @@ const Covid_Form = () =>{
                     <input className = "form-control" type="number" name = "deaths" value = {state.deaths} onChange = {handleChange}/>
                 </div>
                     <div className="form-group">
-                        <center>
-                            <input type="submit" value="Add Covid Data" className="btn btn-primary" />
+                        <center >
+                            <button type="submit" value="Add Covid Data" className="btn btn-primary"> Add Covid</button> 
                         </center>                
                 </div>
                
