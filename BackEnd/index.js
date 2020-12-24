@@ -58,11 +58,11 @@ let csvStream=fastcsv.parse().on("data",function(data){
 stream.pipe(csvStream);
 
 app.get('/getAllRecords',function(req,res){
-    CovidInfo.find(function(err,info){
+    CovidInfo.find(function(err,docs){
         if(err){
             console.log(err);
         } else {
-            res.json(info);
+            res.json(docs);
         }
     });
 });
@@ -80,24 +80,60 @@ app.post('/addNewRecord', async function(req,res){
     })
 });
 
-app.post('/updateRecord/:state/:county',function(req,res){
+app.post('/updateRecord/:_id', async function(req,res){
+    let id = req.params._id;
+    let updatedRecord = new CovidInfo(req.body);
 
+    res = await CovidInfo.findByIdAndUpdate(id,{
+        date: updatedRecord.date,
+        county: updatedRecord.county,
+        state: updatedRecord.state,
+        cases: updatedRecord.cases,
+        deaths: updatedRecord.deaths
+    }, function(err,docs){
+        if(err){
+            console.log(err);
+        } else {
+            res.status(200).json({'Records': 'record updated successfully'});
+        }
+    })
 });
 
-app.post('/deleteRecord/:state/:county',function(req,res){
-
+app.post('/deleteRecord/:_id',async function(req,res){
+    let id = req.params._id;
+    res= await CovidInfo.findByIdAndDelete(id,function(err,docs){
+        if(err){
+            console.log(err);
+        } else {
+            res.status(200).send('Record deleted');
+        }
+    })
 });
 
-app.get('/showDeaths/:state/:county',function(req,res){
+app.get('/showDeaths/:state/:county',async function(req,res){
+    let state = req.params.state;
+    let county = req.params.county;
 
+    res = await CovidInfo.find({state:state,county:county},function(err,docs){
+        res.json(docs);
+    })
 });
 
-app.get('/get20Documents/:date/:state',function(req,res){
+app.get('/get20Documents/:date/:state',async function(req,res){
+    let date = req.params.date;
+    let state = req.params.state;
 
+    res = await CovidInfo.find({date:date,state:state},function(err,docs){
+        res.json(docs)
+    }).limit(20);
 });
 
-app.get('/getDeathsMore/:number',function(req,res){
+app.get('/getDeathsMore/:number',async function(req,res){
+    let number = req.params.number;
 
+    res = await CovidInfo.find({deaths:{$gte:number}},function(err,docs){
+        res.json(docs);
+    })
 });
 
 app.get('/getComputerInfo',function(req,res){
