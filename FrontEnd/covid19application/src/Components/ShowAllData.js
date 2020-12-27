@@ -2,6 +2,7 @@ import axios from 'axios';
 import React, { Component } from 'react';
 import DataTable from './DataTable';
 
+let url ="http://localhost:5000/";
 
 export default class showAllData extends Component{
 
@@ -19,35 +20,29 @@ export default class showAllData extends Component{
             console.log(error);
         });
     }
-    
-    dataTable() {
-        return this.state.Covid19Data.map((data, i) => {
-            return <DataTable obj={data} key={i} />;
+
+    editRow(obj, id){
+
+    }
+
+    deleteRow(obj, id){
+        
+        axios.post(url+"deleteRecord/"+id)
+        .then(res => {
+            console.log("Deleted record with id: "+id);
+            obj.setState({
+                ...obj.state,
+                Covid19Data: obj.state.Covid19Data.filter(row => row._id !== id),
+            });
+
+        }).catch(err => {
+            console.log(err);
         });
     }
 
     render() {
         return (
-            <div>
-                <div>
-                    <table>
-                        <thead>
-                            <tr>
-                                {/* <td>ID</td> */}
-                                <td>Date</td>
-                                <td>County</td>
-                                <td>State</td>
-                                <td>Cases</td>
-                                <td>Deaths</td>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {this.dataTable()}
-                            {/* <tr><td>Something</td></tr> */}
-                        </tbody>
-                    </table>
-                </div>
-            </div>
+            <DataTable data={this.state.Covid19Data} editRow={ x => this.editRow(this, x) } deleteRow={ x => this.deleteRow(this, x) }/>
         )
     }
 

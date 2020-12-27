@@ -21,7 +21,7 @@ const Main = () =>{
                 <Route path='/getAllRecords' component={showAllData}/>
                 <Route path='/updateRecord/:id' component={updateRecord}/>
                 <Route path='/getCasesAndDeaths/:id' component={getCasesAndDeaths}/>
-                <Route path='/deleteRecord' component={deleteRecord}/>
+                <Route path='/deleteRecord/:id' component={deleteRecord}/>
                 <Route path='/get20Documents' component={get20Documents}/>
                 <Route path='/getDeathsGreater' component={getDeathsGreater}/>
                 <Route path='/getComputerInfo' component={getComputerInfo}/>

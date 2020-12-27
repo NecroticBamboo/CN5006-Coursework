@@ -3,7 +3,7 @@ let CovidInfo=require('./Covid19Information');
 let mongodbConnected=require('./MongoDBConnection');
 const cors=require('cors');
 
-var app=express();
+var app = express();
 
 var bodyParser=require("body-parser");
 var corsOptions = {
@@ -40,7 +40,7 @@ async function initCollection(csvData){
 
 let csvStream=fastcsv.parse().on("data",function(data){
     d = {
-        _id: data[0]+"-"+data[1]+"-"+data[2],
+        _id: data[0].replaceAll("/",".")+"-"+data[1]+"-"+data[2],
         date: Date.parseExact(data[0],"d/M/yyyy"),
         county: data[1],
         state: data[2],
@@ -104,7 +104,7 @@ app.post('/deleteRecord/:_id',async function(req,res){
     res= await CovidInfo.findByIdAndDelete(id,function(err,docs){
         if(err){
             console.log(err);
-        } else {
+        } else if(res !== null){
             res.status(200).send('Record deleted');
         }
     })

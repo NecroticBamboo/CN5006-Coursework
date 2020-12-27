@@ -6,7 +6,7 @@ const Home = () =>{
     return(
     <div>
         <h1>Welcome to Covid Application Data</h1>
-        <img src = {Image} width = "550"/>
+        <img src = {Image} width = "550" alt=""/>
     </div>
     );
 }

@@ -1,40 +1,67 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 
 class DataTable extends Component {
-    render() {
+    renderRow(data) {
         return (
             <tr>
-                {/* <td>
-                    {this.props.obj._id}
-                </td> */}
                 <td>
-                    {this.props.obj.date}
+                    {data.date}
                 </td>
                 <td>
-                    {this.props.obj.county}
+                    {data.county}
                 </td>
                 <td>
-                    {this.props.obj.state}
+                    {data.state}
                 </td>
                 <td>
-                    {this.props.obj.cases}
+                    {data.cases}
                 </td>
                 <td>
-                    {this.props.obj.deaths}
+                    {data.deaths}
                 </td>
                 <td>
-                    <Link to ={"/updateRecord/"+this.props.obj._id}>Update</Link>
+                    <button onClick={() => {this.props.editRow(data._id)}} className="button muted-button">
+                        Edit
+                    </button>
                 </td>
                 <td>
-                    <Link to ={"/getCasesAndDeaths/"+this.props.obj._id}>Get Cases and Deaths</Link>
-                </td>
-                <td>
-                    <Link to ={"/deleteRecord/"+this.props.obj._id}>Delete</Link>
+                    <button onClick={() => {this.props.deleteRow(data._id)}} className="button muted-button">
+                        Delete
+                    </button>
                 </td>
             </tr>
         );
     }
+
+    renderBody(data) {
+        return data.map((row, i) => {
+            return this.renderRow(row);
+        });
+    }
+
+    render() {
+        return (
+            <div>
+                <div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <td>Date</td>
+                                <td>County</td>
+                                <td>State</td>
+                                <td>Cases</td>
+                                <td>Deaths</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {this.renderBody(this.props.data)}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        )
+    }
+
 }
 
 export default DataTable;
