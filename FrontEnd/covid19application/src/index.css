@@ -110,7 +110,6 @@ select option {
 
  button {
   margin-top: 20px;
-  background-color: whitesmoke;
   border: 2px outset white;
   color: black;
   padding: 7px 12px;
@@ -125,31 +124,40 @@ select option {
 
 /* Show all data page */
 table, td, th {  
-  border: 4px outset rgb(126, 23, 23);
+  border: 4px outset black;
   text-align: left;
   color: white;
+    border-right: none;
 
-  margin-top: 10%;
 }
 td {
-  background-color: rgb(126, 23, 23);
+  background-color: rgb(186, 114, 114);
+  padding-bottom: 20px;
   
 }
-th {
-  background-color: rgb(169, 101, 101);
+#Button  {
+  color: white;
+  background-color: rgb(140, 66, 66);
+  border-right: none;
+  padding: 15px;
+  margin-left: 5px;
 }
 
+#title-size{
+  font-size: 30px;
+  background-color: rgb(126, 23, 23);
+
+
+}
 table {
   border-collapse: collapse;
-  margin-left: 35%;
-  
+  margin-left: 20%;
 }
 
 th, td {
   padding: 5px 15px;
   font-size: large;
   font-weight: 600;
-  
 
 }
 

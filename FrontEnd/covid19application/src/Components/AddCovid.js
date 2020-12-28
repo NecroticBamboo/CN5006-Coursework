@@ -37,9 +37,12 @@ const Covid_Form = () =>{
             deaths:state.deaths
         }
 
-        // alert.log("New Record added: "); //display record in alert
+        // alert.log("New Record added: ");
+         //display record in alert
         axios.post(url + "addNewRecord", CovidData);
     }
+
+    
 
     return(
         <div style ={{marginTop:12}} >
