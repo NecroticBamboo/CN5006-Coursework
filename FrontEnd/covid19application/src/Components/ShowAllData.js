@@ -22,7 +22,13 @@ export default class showAllData extends Component{
     }
 
     editRow(obj, id){
-
+        
+        // axios.put(url +" Update Covid record" + id)
+        // .then(res => {
+        // this.setState({items: res.data});
+        // this.props.history.push('/items');
+        // })
+        // .catch(err => console.log(err));
     }
 
     deleteRow(obj, id){
