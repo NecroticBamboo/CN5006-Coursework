@@ -40,7 +40,7 @@ async function initCollection(csvData){
 
 let csvStream=fastcsv.parse().on("data",function(data){
     d = {
-        _id: data[0].replaceAll("/",".")+"-"+data[1]+"-"+data[2],
+        _id: data[0].replace(/\//g,".")+"-"+data[1]+"-"+data[2],
         date: Date.parseExact(data[0],"d/M/yyyy"),
         county: data[1],
         state: data[2],
@@ -115,7 +115,17 @@ app.get('/showDeaths/:state/:county',async function(req,res){
     let county = req.params.county;
 
     res = await CovidInfo.find({state:state,county:county},function(err,docs){
-        res.json(docs);
+        let deaths = 0;
+        let cases = 0;
+
+        for (let index = 0; index < docs.length-1; index++) {
+            deaths=deaths+docs[index].deaths;
+            cases=cases+docs[index].cases;
+        }
+        // console.log(deaths);
+        // console.log(cases);
+        
+        res.json({deaths: deaths, cases: cases});
     })
 });
 

@@ -20,7 +20,7 @@ const Main = () =>{
                 <Route path='/addCovid' component={AddCovid}/>
                 <Route path='/getAllRecords' component={showAllData}/>
                 <Route path='/updateRecord/:id' component={updateRecord}/>
-                <Route path='/getCasesAndDeaths/:id' component={getCasesAndDeaths}/>
+                <Route path='/getCasesAndDeaths' component={getCasesAndDeaths}/>
                 <Route path='/deleteRecord/:id' component={deleteRecord}/>
                 <Route path='/get20Documents' component={get20Documents}/>
                 <Route path='/getDeathsGreater' component={getDeathsGreater}/>
