@@ -3,7 +3,7 @@ let CovidInfo=require('./Covid19Information');
 let mongodbConnected=require('./MongoDBConnection');
 const cors=require('cors');
 
-var app = express();
+var app=express();
 
 var bodyParser=require("body-parser");
 var corsOptions = {
@@ -104,7 +104,7 @@ app.post('/deleteRecord/:_id',async function(req,res){
     res= await CovidInfo.findByIdAndDelete(id,function(err,docs){
         if(err){
             console.log(err);
-        } else if(res !== null){
+        } else {
             res.status(200).send('Record deleted');
         }
     })

@@ -19,16 +19,13 @@ class DataTable extends Component {
                 <td>
                     {data.deaths}
                 </td>
-                <td>
-                    <button onClick={() => {this.props.editRow(data._id)}} className="button muted-button">
+                 <button onClick={() => {this.props.editRow(data._id)}}  id ="Button"className="muted-button">
                         Edit
                     </button>
-                </td>
-                <td>
-                    <button onClick={() => {this.props.deleteRow(data._id)}} className="button muted-button">
+                 <button onClick={() => {this.props.deleteRow(data._id)}} id = "Button"className="muted-button">
                         Delete
                     </button>
-                </td>
+                
             </tr>
         );
     }
@@ -45,12 +42,12 @@ class DataTable extends Component {
                 <div>
                     <table>
                         <thead>
-                            <tr>
-                                <td>Date</td>
-                                <td>County</td>
-                                <td>State</td>
-                                <td>Cases</td>
-                                <td>Deaths</td>
+                            <tr >
+                                <td id = "title-size">Date</td>
+                                <td id = "title-size">County</td>
+                                <td id = "title-size">State</td>
+                                <td id = "title-size">Cases</td>
+                                <td id = "title-size">Deaths</td>
                             </tr>
                         </thead>
                         <tbody>
