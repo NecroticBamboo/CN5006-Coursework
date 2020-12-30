@@ -64,7 +64,7 @@ app.get('/getAllRecords',function(req,res){
         } else {
             res.json(docs);
         }
-    });
+    }).limit(20);
 });
 
 app.post('/addNewRecord', async function(req,res){

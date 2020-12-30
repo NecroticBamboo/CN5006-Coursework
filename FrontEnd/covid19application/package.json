@@ -8,6 +8,7 @@
         "@testing-library/user-event": "^12.4.0",
         "axios": "^0.21.0",
         "bootstrap": "^4.5.3",
+        "chart.js": "^2.9.4",
         "datejs": "^1.0.0-rc3",
         "react": "^17.0.1",
         "react-dom": "^17.0.1",
@@ -37,11 +38,7 @@
         "development": [
             "last 1 chrome version",
             "last 1 firefox version",
-            "last 1 safari version",
-            "last 1 Microsoft Edge version"
-
-
-
+            "last 1 safari version"
         ]
     }
 }

@@ -12,7 +12,7 @@ export default class showAllData extends Component{
     };
 
     componentDidMount(){
-        axios.get("http://localhost:5000/getAllRecords")
+        axios.get("http://localhost:5000/getAllRecords", )
         .then(res => {
             console.log("Get all records triggered")
             this.setState({ Covid19Data: res.data });
@@ -20,6 +20,7 @@ export default class showAllData extends Component{
             console.log(error);
         });
     }
+     
 
     editRow(obj, id){
         
@@ -46,9 +47,31 @@ export default class showAllData extends Component{
         });
     }
 
+ 
+    LimitCovidData (id) {
+        showAllData.find({})
+        .filter(row => row._id !== id)
+        .limit(20)
+        .exec()
+        .then(docs => {
+                console.log("Showing multiple documents" + docs)
+             
+            })
+            .catch( err => {
+                console.error(err)
+            }) 
+           // return this.state.Covid19Data.filter(row => row._id !== id).map(function(currentcovid,i){
+        //     console.log(" "+currentcovid + " "+i)
+        //     .limit(20)
+        //     return <showAllData covid = {currentcovid} key ={i}/>
+        // })
+    }
+
+    
+
     render() {
         return (
-            <DataTable data={this.state.Covid19Data} editRow={ x => this.editRow(this, x) } deleteRow={ x => this.deleteRow(this, x) }/>
+            <DataTable limit = {y => this.LimitCovidData( y)} data={this.state.Covid19Data} editRow={ x => this.editRow(this, x) } deleteRow={ x => this.deleteRow(this, x) }/>
         )
     }
 
