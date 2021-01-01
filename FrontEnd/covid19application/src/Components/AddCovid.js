@@ -1,13 +1,17 @@
 import React, {useState} from 'react';
 import axios from 'axios';
+import Form from 'react-bootstrap/Form'
+import Button from 'react-bootstrap/Button';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
-// const datejs = require("datejs");
+
+const datejs = require("datejs");
 
 const Covid_Form = () =>{
     const [state, setState] = useState({
     date: new Date().toString("yyyy-MM-dd"),
     county: "",
-    state: "NY",
+    state: "",
     cases: null,
     deaths: null,
     })
@@ -43,28 +47,21 @@ const Covid_Form = () =>{
 
     return(
         <div style ={{marginTop:12}} >
-            <h1>Add Covid Data</h1>
-            <form onSubmit ={onSubmit} method = "Post">
-                <div className = "form-group">
-                    <label>Date: </label>
-                    <input className = "form-control" type="date" name = "date" value = {state.date} onChange = {handleChange}/>
-                </div>
-                 <div className = "form-group">
-                    <label>County: </label>
-                    <input className = "form-control" type="text" name = "county" value = {state.county} onChange = {handleChange}/>
-                </div>
+            <h3>Add Covid Data</h3>
+            <Form onSubmit ={onSubmit} method = "Post">
+                <Form.Group controlId = "Date">
+                    <Form.Label>Date</Form.Label>
+                    <Form.Control type = "date"  name ="date" value ={state.date} onChange ={handleChange}/>
+                </Form.Group>
 
-                {/* Use this version? */}
+                <Form.Group controlId = "County">
+                    <Form.Label>County</Form.Label>
+                    <Form.Control type = "text"  name ="county" value ={state.county} onChange ={handleChange}/>
+                </Form.Group>
 
-                 {/* <div className = "form-group">
-                    <label>State: </label>
-                    <input className = "form-control" type="text" name = "state" value = {state.state} onChange = {handleChange}/>
-                </div> */}
-
-                <div className = "form-group">
-                    <label>State: {" "}
-                        <select className = "form-control"
-                        name ="state" value = {state.state} onChange = {handleChange}>
+                <Form.Group controlId ="State">
+                    <Form.Label>State</Form.Label>
+                    <Form.Control as = "select"  name ="state" value ={state.state} onChange ={handleChange}>
                             <option value ="Alabama">Alabama</option>
                             <option value ="Alaska">Alaska</option>
                             <option value ="American Samoa">American Samoa</option>
@@ -119,25 +116,20 @@ const Covid_Form = () =>{
                             <option value ="West">West Virginia</option>
                             <option value ="Wisconsin">Wisconsin</option>
                             <option value ="Wyoming">Wyoming</option>
-                        </select>
-                    </label>
-                </div>
-
-                 <div className = "form-group">
-                    <label>Cases: </label>
-                    <input className = "form-control" type="number" name = "cases" value = {state.cases} onChange = {handleChange}/>
-                </div>
-                 <div className = "form-group">
-                    <label>Deaths: </label>
-                    <input className = "form-control" type="number" name = "deaths" value = {state.deaths} onChange = {handleChange}/>
-                </div>
-                    <div className="form-group">
-                        <center >
-                            <button type="submit" value="Add Covid Data" className="btn btn-primary"> Add Covid</button> 
-                        </center>                
-                </div>
-               
-            </form>
+                    </Form.Control>
+                </Form.Group>
+                <Form.Group controlId = "Cases">
+                    <Form.Label>Cases</Form.Label>
+                    <Form.Control type = "number"  name ="cases" value ={state.cases} onChange ={handleChange}/>
+                </Form.Group>
+                   
+                <Form.Group controlId = "Deaths">
+                    <Form.Label>Deaths</Form.Label>
+                    <Form.Control type = "number"  name ="deaths" value ={state.deaths} onChange ={handleChange}/>
+                </Form.Group>
+                <Button variant="info" size="lg" block="block" type="submit">Add Covid </Button>
+                
+            </Form>
         </div>
     )
 }

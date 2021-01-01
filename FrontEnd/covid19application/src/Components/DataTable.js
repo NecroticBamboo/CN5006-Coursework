@@ -4,6 +4,7 @@ class DataTable extends Component {
     renderRow(data) {
         return (
             <tr>
+                
                 <td>
                     {data.date}
                 </td>
@@ -19,10 +20,11 @@ class DataTable extends Component {
                 <td>
                     {data.deaths}
                 </td>
-                 <button onClick={() => {this.props.editRow(data._id)}}  id ="Button"className="muted-button">
+            
+                 <button onClick={() => {this.props.editRow(data._id)}}  id ="edit-btn"className="muted-button">
                         Edit
                     </button>
-                 <button onClick={() => {this.props.deleteRow(data._id)}} id = "Button"className="muted-button">
+                 <button onClick={() => {this.props.deleteRow(data._id)}} id = "delete-btn"className="muted-button">
                         Delete
                     </button>
                 
@@ -48,6 +50,7 @@ class DataTable extends Component {
                                 <td id = "title-size">State</td>
                                 <td id = "title-size">Cases</td>
                                 <td id = "title-size">Deaths</td>
+                                <td id = "title-size"  >Actions</td>
                             </tr>
                         </thead>
                         <tbody>

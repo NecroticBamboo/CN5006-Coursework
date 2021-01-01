@@ -19,7 +19,6 @@ code {
 .navigation-bar {
 
   text-align: center;
-  margin-top: -16px;
 }
 
 .navigation-bar li {
@@ -29,7 +28,7 @@ code {
 .navigation-bar ul {
   list-style-type: none;
   overflow: hidden;
-  background-color: rgb(126, 23, 23);
+  background-color: rgb(25, 158, 170);
 }
 
 .navigation-bar ul li {
@@ -43,12 +42,19 @@ code {
   color: white;
   padding: 8px 10px;
   border-radius: 10px;
-  font-size: 25px;
+  font-size: 15px;
 }
 
+#covid-title {
+  color: aliceblue;
+  font-size: 23px;
+  margin-left: -15%;
+  padding-right: 50px;
+}
 
 li a:hover {
-  background-color: rgb(169, 101, 101);
+  color: black;
+  background-color: rgb(79, 174, 180);
   border-radius: 10px;
 }
 li a:active {
@@ -66,87 +72,95 @@ li a:active {
 
 /* Home page */
 
+h1 {
+  text-align:  center;
+}
 img {
   position: relative;
   margin-left: 32%;
-  border: 5px outset rgb(126, 23, 23);
   border-radius: 20px;
 }
 
 /* Style for the Form */
 
-h1 {
+h3 {
   text-align: center;
 }
 form {
-  padding: 30px;
-  margin-left: 30%;
-  margin-right: 30%;
-  background-color: rgb(126, 23, 23);
-  border: 4px  solid black;
-  border-radius: 20px;
+  margin-top: 30px;
+  margin-left: 20%;
+  margin-right: 20%;
+  background-color: rgb(255, 255, 255);
+  border: 1px  solid black;
+  border-radius: 10px;
 }
 
 form label {
-  color: #f1f1f1;
-  margin-left: 25%;
-  font-size: large;
+  color:black;
+  margin-left: 10px;
+  font-size: 20px;
+  font-weight: 700;
 }
 
-select, input {
-  width: 30%;
-  margin-top: 10px;
-  padding: 8px 8px;
-  border: none;
-  border-radius: 4px;
-  background-color: #f1f1f1;
-  font-size: large;
-}
-
-select option {
-  font-size: large;
-  margin-left: 5%;
-}
-
- button {
-  margin-top: 20px;
-  border: 2px outset white;
-  color: black;
-  padding: 7px 12px;
-  border-radius: 10px;
-  text-decoration: none;
-  font-size: 15px;
-  font-weight: 600;
-  cursor: pointer;}
 
 /* End of Form style */
 
 
+
 /* Show all data page */
 table, td, th {  
-  border: 4px outset black;
+  border: 1px outset black;
+  /* border-right:none ; */
   text-align: left;
-  color: white;
-    border-right: none;
+  color: black;
 
 }
-td {
-  background-color: rgb(186, 114, 114);
-  padding-bottom: 20px;
-  
+tr:hover {
+  background-color: rgb(255, 252, 252);
 }
-#Button  {
+
+
+#edit-btn  {
   color: white;
-  background-color: rgb(140, 66, 66);
+  background-color: rgb(34, 169, 50);
+  padding: 6px 15px;
+  margin-top: 10px;
+  margin-left: 10px;
+  border-radius: 5px;
+
+}
+#delete-btn {
+  color: white;
+  background-color: rgb(211, 53, 53);
+  padding: 6px 15px;
+  margin-top: 10px;
+  margin-left: 10px;
+  border-radius: 5px;
   border-right: none;
-  padding: 15px;
-  margin-left: 5px;
 }
 
-#title-size{
-  font-size: 30px;
-  background-color: rgb(126, 23, 23);
+#delete-btn:hover {
+  background-color: rgba(211, 53, 53, 0.457);
+  color: black;
+}
+#delete-btn:active {
+  background-color: white;
+  color: black;
+}
 
+#edit-btn:hover{
+  background-color: rgba(34, 169, 50, 0.429);
+  color: black;
+}
+
+#edit-btn:active {
+  background-color: white;
+  color: black;
+}
+#title-size{
+  font-size: 18px;
+  background-color: rgb(70, 176, 185);
+  color: black;
 
 }
 table {
@@ -155,9 +169,9 @@ table {
 }
 
 th, td {
-  padding: 5px 15px;
+  padding: 2px 15px;
   font-size: large;
-  font-weight: 600;
+  font-weight: 700;
 
 }
 

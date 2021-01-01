@@ -1,5 +1,7 @@
 mongoose = require('mongoose');
 
+const covidData = require ('./Covid19Information')
+
 const MONGO_URI= 'mongodb://localhost:27017/covid_coursework';
 
 mongoose.connect(MONGO_URI,{useUnifiedTopology:true,useNewUrlParser:true});

@@ -57,6 +57,13 @@ let csvStream=fastcsv.parse().on("data",function(data){
 
 stream.pipe(csvStream);
 
+app.get('/getrecord/:id',function(req, res) {
+ let id = req.params.id;
+ CovidInfo.findById(id, function(err, covid) {
+ res.json(covid);
+ });
+ });
+
 app.get('/getAllRecords',function(req,res){
     CovidInfo.find(function(err,docs){
         if(err){
@@ -122,8 +129,8 @@ app.get('/showDeaths/:state/:county',async function(req,res){
             deaths=deaths+docs[index].deaths;
             cases=cases+docs[index].cases;
         }
-        // console.log(deaths);
-        // console.log(cases);
+        console.log(deaths);
+        console.log(cases);
         
         res.json({deaths: deaths, cases: cases});
     })
