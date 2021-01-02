@@ -19,5 +19,9 @@ export function getSpecificData(id) {
 }
 
 export function updateRecord(id,CovidData){
-    return axios.post(url+"/updateRecord/"+id,CovidData);
+    return axios.post(url+"updateRecord/"+id,CovidData);
+}
+
+export function get20Records(date,state){
+    return axios.get(url+"get20Documents/"+date+"/"+state);
 }

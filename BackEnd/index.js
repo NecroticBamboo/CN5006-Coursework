@@ -144,9 +144,9 @@ app.get('/showDeaths/:state/:county',async function(req,res){
 });
 
 app.get('/get20Documents/:date/:state',async function(req,res){
-    let date = req.params.date;
+    let date = Date.parse(req.params.date);
     let state = req.params.state;
-
+    
     res = await CovidInfo.find({date:date,state:state},function(err,docs){
         res.json(docs)
     }).limit(20);
