@@ -1,9 +1,8 @@
-import axios from 'axios';
 import React from 'react';
-import DataTable from './DataTable';
+// import DataTable from './DataTable';
 import BarChart from './BarChart';
+import {getAllRecords} from '../BackEndAPI';
 
-let url ="http://localhost:5000/";
 
 export default class Analysis extends React.Component{
                              
@@ -19,7 +18,7 @@ export default class Analysis extends React.Component{
     };
 
     componentDidMount(){
-        axios.get(url+"getAllRecords")
+        getAllRecords()
         .then(res => {
             console.log("Get all records triggered");
 			

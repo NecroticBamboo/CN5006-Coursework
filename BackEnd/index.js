@@ -74,6 +74,20 @@ app.get('/getAllRecords',function(req,res){
     }).limit(20);
 });
 
+app.get('/getSpecificRecord/:_id',function (req,res) {
+    let id = req.params._id;
+    // console.log("Mongo getSpecidicRecord ID: "+id);
+
+    CovidInfo.findById(id,function (err,docs) {
+        if(err){
+            console.log(err);
+        } else {
+            // console.log("Mongo getSpecidicRecord Result: "+docs);
+            res.json(docs);
+        }
+    })
+})
+
 app.post('/addNewRecord', async function(req,res){
     let newRecord= req.body;
     console.log("New Record: ",newRecord);
@@ -111,7 +125,7 @@ app.post('/deleteRecord/:_id',async function(req,res){
     res= await CovidInfo.findByIdAndDelete(id,function(err,docs){
         if(err){
             console.log(err);
-        } else {
+        } else if(res !== null){
             res.status(200).send('Record deleted');
         }
     })

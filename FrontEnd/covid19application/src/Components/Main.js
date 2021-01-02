@@ -19,8 +19,8 @@ const Main = () =>{
                 {/* both /roster and /roster/:number begin with /roster */}
                 <Route path='/addCovid' component={AddCovid}/>
                 <Route path='/getAllRecords' component={showAllData}/>
-                <Route path='/edit/:id' component={Covid_UpdateRecord}/>
-                <Route path='/getCasesAndDeaths/:id' component={getCasesAndDeaths}/>
+                <Route path='/updateRecord/:id' component={Covid_UpdateRecord}/>
+                <Route path='/getCasesAndDeaths' component={getCasesAndDeaths}/>
                 <Route path='/deleteRecord/:id' component={deleteRecord}/>
                 <Route path='/get20Documents' component={get20Documents}/>
                 <Route path='/getDeathsGreater' component={getDeathsGreater}/>

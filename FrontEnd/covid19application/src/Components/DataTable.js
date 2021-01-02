@@ -1,7 +1,11 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+// import updateRecord from './updateRecord'
 
 class DataTable extends Component {
     renderRow(data) {
+        const url = '/updateRecord/'+data._id;
+
         return (
             <tr>
                 
@@ -20,14 +24,18 @@ class DataTable extends Component {
                 <td>
                     {data.deaths}
                 </td>
-            
-                 <button onClick={() => {this.props.editRow(data._id)}}  id ="edit-btn"className="muted-button">
+                    {/* <button onClick={() => {this.props.editRow(data._id)}}  id ="Button" className="muted-button">
                         Edit
-                    </button>
-                 <button onClick={() => {this.props.deleteRow(data._id)}} id = "delete-btn"className="muted-button">
+                    </button> */}
+                <td>    
+                    <Link to={url} className="link-button">
+                        Edit
+                    </Link>
+                    
+                    <button onClick={() => {this.props.deleteRow(data._id)}} class="link-button">
                         Delete
                     </button>
-                
+                </td>
             </tr>
         );
     }
@@ -44,13 +52,13 @@ class DataTable extends Component {
                 <div>
                     <table>
                         <thead>
-                            <tr >
-                                <td id = "title-size">Date</td>
-                                <td id = "title-size">County</td>
-                                <td id = "title-size">State</td>
-                                <td id = "title-size">Cases</td>
-                                <td id = "title-size">Deaths</td>
-                                <td id = "title-size"  >Actions</td>
+                            <tr>
+                                <td class="title-size">Date</td>
+                                <td class="title-size">County</td>
+                                <td class="title-size">State</td>
+                                <td class="title-size">Cases</td>
+                                <td class="title-size">Deaths</td>
+                                <td class="title-size">Actions</td>
                             </tr>
                         </thead>
                         <tbody>

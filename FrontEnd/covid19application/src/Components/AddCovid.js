@@ -1,22 +1,18 @@
 import React, {useState} from 'react';
-import axios from 'axios';
-import Form from 'react-bootstrap/Form'
-import Button from 'react-bootstrap/Button';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import {addRecord} from '../BackEndAPI';
 
 
 const datejs = require("datejs");
 
 const Covid_Form = () =>{
     const [state, setState] = useState({
-    date: new Date().toString("yyyy-MM-dd"),
-    county: "",
-    state: "",
-    cases: null,
-    deaths: null,
+        date: new Date().toString("yyyy-MM-dd"),
+        county: "",
+        state: "NY",
+        cases: null,
+        deaths: null,
     })
 
-    let url ="http://localhost:5000/"
     const handleChange = (e) =>{
         const value = e.target.value;
         
@@ -40,9 +36,7 @@ const Covid_Form = () =>{
             cases: state.cases,
             deaths:state.deaths
         }
-
-        // alert.log("New Record added: "); //display record in alert
-        axios.post(url + "addNewRecord", CovidData);
+        addRecord(CovidData);
     }
 
     return(
