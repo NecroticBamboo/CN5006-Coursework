@@ -57,13 +57,6 @@ let csvStream=fastcsv.parse().on("data",function(data){
 
 stream.pipe(csvStream);
 
-app.get('/getrecord/:id',function(req, res) {
- let id = req.params.id;
- CovidInfo.findById(id, function(err, covid) {
- res.json(covid);
- });
- });
-
 app.get('/getAllRecords',function(req,res){
     CovidInfo.find(function(err,docs){
         if(err){
@@ -71,7 +64,7 @@ app.get('/getAllRecords',function(req,res){
         } else {
             res.json(docs);
         }
-    }).limit(20);
+    });
 });
 
 app.get('/getSpecificRecord/:_id',function (req,res) {

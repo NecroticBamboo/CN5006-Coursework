@@ -1,11 +1,11 @@
-import axios from 'axios';
-import React, { Component } from 'react';
-import DataTable from './DataTable';
-import {Redirect} from 'react-router-dom';
-import Analysis from './Analysis';
+// import axios from 'axios';
+import React from 'react';
+// import DataTable from './DataTable';
+// import {Redirect} from 'react-router-dom';
+// import Analysis from './Analysis';
 
 
-let url ="http://localhost:5000/";
+// let url ="http://localhost:5000/";
 
 
 const getDeathsGreater = () =>{

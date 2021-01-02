@@ -34,7 +34,7 @@ export default class Covid_UpdateRecord extends Component{
             console.log(now.getFullYear());
             console.log(now.getMonth());
             console.log(now.getDate());
-//            return ""+now.getFullYear()+"/"+this.pad(now.getMonth()+1,2)+"/"+now.getDate();
+            //return ""+now.getFullYear()+"/"+this.pad(now.getMonth()+1,2)+"/"+now.getDate();
             return ""+now.getDate()+"/"+this.pad(now.getMonth()+1,2)+"/"+now.getFullYear(); //error here
             // return "2021/01/01";
     }

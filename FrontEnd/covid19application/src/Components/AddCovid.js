@@ -1,8 +1,8 @@
 import React, {useState} from 'react';
 import {addRecord} from '../BackEndAPI';
+import { Form, Button} from "react-bootstrap";
 
-
-const datejs = require("datejs");
+// const datejs = require("datejs");
 
 const Covid_Form = () =>{
     const [state, setState] = useState({

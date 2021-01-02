@@ -45,34 +45,10 @@ export default class showAllData extends Component{
         });
     }
 
- 
-    LimitCovidData (id) {
-        showAllData.find({})
-        .filter(row => row._id !== id)
-        .limit(20)
-        .exec()
-        .then(docs => {
-                console.log("Showing multiple documents" + docs)
-             
-            })
-            .catch( err => {
-                console.error(err)
-            }) 
-           // return this.state.Covid19Data.filter(row => row._id !== id).map(function(currentcovid,i){
-        //     console.log(" "+currentcovid + " "+i)
-        //     .limit(20)
-        //     return <showAllData covid = {currentcovid} key ={i}/>
-        // })
-    }
-
-    
-
     render() {
         return (
-            <DataTable limit = {y => this.LimitCovidData( y)} data={this.state.Covid19Data} editRow={ x => this.editRow(this, x) } deleteRow={ x => this.deleteRow(this, x) }/>
+            <DataTable data={this.state.Covid19Data} editRow={ x => this.editRow(this, x) } deleteRow={ x => this.deleteRow(this, x) }/>
         )
     }
 
 }
-
-// export default showAllData;

@@ -107,13 +107,12 @@ form label {
 
 
 /* Show all data page */
-table, td, th {  
+/* table, td, th {  
   border: 1px outset black;
-  /* border-right:none ; */
   text-align: left;
   color: black;
+} */
 
-}
 tr:hover {
   background-color: rgb(255, 252, 252);
 }
@@ -155,7 +154,8 @@ tr:hover {
   font-size: 30px;
   background-color: rgb(126, 23, 23);
 }
-table {
+
+/* table {
   border-collapse: collapse;
   margin-left: 20%;
 }
@@ -165,4 +165,4 @@ th, td {
   font-size: large;
   font-weight: 700;
 
-}
+} */
