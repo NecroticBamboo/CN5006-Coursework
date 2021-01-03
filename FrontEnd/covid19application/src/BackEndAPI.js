@@ -25,3 +25,7 @@ export function updateRecord(id,CovidData){
 export function get20Records(date,state){
     return axios.get(url+"get20Documents/"+date+"/"+state);
 }
+
+export function getByStateAndCounty(state, county){
+    return axios.get(url+"getByStateAndCounty/"+state+"/"+county);
+}

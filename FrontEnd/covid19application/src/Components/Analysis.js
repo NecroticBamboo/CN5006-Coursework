@@ -1,39 +1,30 @@
 import React from 'react';
 // import DataTable from './DataTable';
 import BarChart from './BarChart';
-import {getAllRecords} from '../BackEndAPI';
 
 
 export default class Analysis extends React.Component{
                              
     constructor(props) {
         super(props);
-        this.state = { 
-			DeathsByState: [],
-			DeathsByCounty: [],
-			CasesByState: [],
-			CasesByCounty: [],
-			Covid19Data: []
+        this.state = {
+			Covid19Data: props.data,
+			DeathsByState  : [],
+			CasesByState   : [],
 		};
     };
 
-    componentDidMount(){
-        getAllRecords()
-        .then(res => {
-            console.log("Get all records triggered");
-			
-            this.setState({
-				DeathsByState:  this.prepareChart( res.data, x => x.state,  x => x.deaths ),
-				DeathsByCounty: this.prepareChart( res.data, x => x.county, x => x.deaths ),
-				CasesByState:   this.prepareChart( res.data, x => x.state,  x => x.cases ),
-				CasesByCounty:  this.prepareChart( res.data, x => x.county, x => x.cases ),
-				Covid19Data: res.data
-			});
-        }).catch(function (error) {
-            console.log(error);
-        });
-    }
+	componentWillReceiveProps(nextProps) {
+		var data = nextProps.data;
 
+		this.setState(
+		{ 
+			Covid19Data    : data, 
+			DeathsByState  : this.prepareChart( data, x => x.date,  x => x.deaths ),
+			CasesByState   : this.prepareChart( data, x => x.date,  x => x.cases ),
+		});  
+	}
+	
 	prepareChart( data, keySelector, valueSelector ) {
 
 		// select distinct states and sort them alphabelicaly
@@ -59,6 +50,9 @@ export default class Analysis extends React.Component{
 			deaths[ stateIndex[keySelector(row)] ].value += valueSelector(row);
 		} );
 			
+			
+		// --------- sorting ---------------
+		/*
 		// compare in reverse order
 		function compare( a, b ) {
 			if ( a.value < b.value ){
@@ -72,33 +66,25 @@ export default class Analysis extends React.Component{
 		
 		// sort descending
 		deaths.sort( compare );
-			
+		*/	
 		return deaths;
-	}
-	
-	prepareCasesChart( data ) {
-		return this.prepareChart( data, x => x.state, x => x.cases );
 	}
 	
     render() {
 		
-		console.log(this.state.ChartData);
+		var DeathsByState  = this.state.DeathsByState ;
+		var CasesByState   = this.state.CasesByState  ;
 		
+
         return (
 			<div>
-				<p>Total deaths: { this.state.Covid19Data.map(x => x.deaths).reduce((a, b) => a + b, 0) }</p>
-				<div>
-					<BarChart data={this.state.DeathsByState} title="Deaths" color="#70CAD1" />
+				<div class="m-3">Total deaths: { this.state.Covid19Data.map(x => x.deaths).reduce((a, b) => a + b, 0) }</div>
+				<div class="m-3">
+					<BarChart data={DeathsByState} title="Deaths" color="#70CAD1" chartType="line"/>
 				</div>
-				<div>
-					<BarChart data={this.state.DeathsByCounty} title="Deaths" color="#70CAD1" />
-				</div>
-				<p>Total cases: { this.state.Covid19Data.map(x => x.cases).reduce((a, b) => a + b, 0) }</p>
-				<div>
-					<BarChart data={this.state.CasesByState} title="Cases" color="#70CAD1" />
-				</div>
-				<div>
-					<BarChart data={this.state.CasesByCounty} title="Cases" color="#70CAD1" />
+				<div class="m-3">Total cases: { this.state.Covid19Data.map(x => x.cases).reduce((a, b) => a + b, 0) }</div>
+				<div class="m-3">
+					<BarChart data={CasesByState} title="Cases" color="#70CAD1" chartType="line" />
 				</div>
 			</div>
         );

@@ -13,7 +13,16 @@ export default class showAllData extends Component{
         getAllRecords()
         .then(res => {
             console.log("Get all records triggered")
-            this.setState({ Covid19Data: res.data });
+			
+			this.setState({ 
+				Covid19Data: res.data.map( x => { 
+					return {
+						...x,
+						date: x.date.substring(0,10)
+					};
+				})
+			});
+				
         }).catch(function (error) {
             console.log(error);
         });

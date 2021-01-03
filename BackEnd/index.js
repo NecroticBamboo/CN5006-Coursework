@@ -18,44 +18,49 @@ const fs = require("fs");
 const fastcsv = require("fast-csv");
 const datejs = require("datejs");
 
-let stream = fs.createReadStream("TestData.csv");
-let csvData = [];
+let shouldInit = false;
 
-async function initCollection(csvData){
-    console.log(csvData.length);
+if ( shouldInit ) {
+		
+	let stream = fs.createReadStream("Coviddata.csv");
+	let csvData = [];
 
-    await CovidInfo.deleteMany({});
+	async function initCollection(csvData){
+		console.log(csvData.length);
 
-    try {
-        res = await CovidInfo.insertMany(csvData);
-        console.log(`Inserted: multiple rows `);
+		await CovidInfo.deleteMany({});
 
-        count = await CovidInfo.countDocuments();
-        console.log("Total documents Count:",count);
-    }
-    catch (err) {
-        console.log('An error occured '+err);
-    }
-};
+		try {
+			res = await CovidInfo.insertMany(csvData);
+			console.log(`Inserted: multiple rows `);
 
-let csvStream=fastcsv.parse().on("data",function(data){
-    d = {
-        _id: data[0].replace(/\//g,".")+"-"+data[1]+"-"+data[2],
-        date: Date.parseExact(data[0],"d/M/yyyy"),
-        county: data[1],
-        state: data[2],
-        cases: Number.parseInt(data[3]),
-        deaths: Number.parseInt(data[4])
-    };
-    // console.log(d);
-    csvData.push(d);
+			count = await CovidInfo.countDocuments();
+			console.log("Total documents Count:",count);
+		}
+		catch (err) {
+			console.log('An error occured '+err);
+		}
+	};
 
-}).on("end",function(){
-    csvData.shift();
-    initCollection(csvData);
-});
+	let csvStream=fastcsv.parse().on("data",function(data){
+		d = {
+			_id: data[0].replace(/\//g,".")+"-"+data[1]+"-"+data[2],
+			date: Date.parseExact(data[0],"d/M/yyyy"),
+			county: data[1],
+			state: data[2],
+			cases: Number.parseInt(data[3]),
+			deaths: Number.parseInt(data[4])
+		};
+		// console.log(d);
+		csvData.push(d);
 
-stream.pipe(csvStream);
+	}).on("end",function(){
+		csvData.shift();
+		initCollection(csvData);
+	});
+
+	stream.pipe(csvStream);
+}
 
 app.get('/getAllRecords',function(req,res){
     CovidInfo.find(function(err,docs){
@@ -87,7 +92,7 @@ app.post('/addNewRecord', async function(req,res){
     
     // console.log("CovidInfo: ",CovidInfo);
     
-    res = await CovidInfo.insertMany([newRecord]).then(todo=>{
+    await CovidInfo.insertMany([newRecord]).then(todo=>{
         res.status(200).json({'Records': 'record added successfully'});
     }).catch(err=>{
         res.status(400).send('adding new record failed');
@@ -98,7 +103,7 @@ app.post('/updateRecord/:_id', async function(req,res){
     let id = req.params._id;
     let updatedRecord = new CovidInfo(req.body);
 
-    res = await CovidInfo.findByIdAndUpdate(id,{
+    await CovidInfo.findByIdAndUpdate(id,{
         date: updatedRecord.date,
         county: updatedRecord.county,
         state: updatedRecord.state,
@@ -115,7 +120,7 @@ app.post('/updateRecord/:_id', async function(req,res){
 
 app.post('/deleteRecord/:_id',async function(req,res){
     let id = req.params._id;
-    res= await CovidInfo.findByIdAndDelete(id,function(err,docs){
+    await CovidInfo.findByIdAndDelete(id,function(err,docs){
         if(err){
             console.log(err);
         } else if(res !== null){
@@ -128,7 +133,7 @@ app.get('/showDeaths/:state/:county',async function(req,res){
     let state = req.params.state;
     let county = req.params.county;
 
-    res = await CovidInfo.find({state:state,county:county},function(err,docs){
+    await CovidInfo.find({state:state,county:county},function(err,docs){
         let deaths = 0;
         let cases = 0;
 
@@ -147,15 +152,24 @@ app.get('/get20Documents/:date/:state',async function(req,res){
     let date = Date.parse(req.params.date);
     let state = req.params.state;
     
-    res = await CovidInfo.find({date:date,state:state},function(err,docs){
+    await CovidInfo.find({date:date,state:state},function(err,docs){
         res.json(docs)
     }).limit(20);
+});
+
+app.get('/getByStateAndCounty/:state/:county',async function(req,res){
+    let county = req.params.county;
+    let state = req.params.state;
+    
+    await CovidInfo.find({county:county,state:state},function(err,docs){
+        res.json(docs)
+    });
 });
 
 app.get('/getDeathsMore/:number',async function(req,res){
     let number = req.params.number;
 
-    res = await CovidInfo.find({deaths:{$gte:number}},function(err,docs){
+    await CovidInfo.find({deaths:{$gte:number}},function(err,docs){
         res.json(docs);
     })
 });

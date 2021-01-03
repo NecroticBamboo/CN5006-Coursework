@@ -6,7 +6,6 @@ import Chart from 'chart.js';
 export default class BarChart extends React.Component {
 	constructor(props) {
 		super(props);
-		console.log(props);
 		this.canvasRef = React.createRef();
 	}
 
@@ -48,8 +47,6 @@ export default class BarChart extends React.Component {
 	componentDidUpdate() {
 		var minMax = this.getMinMax( this.props.data );
 
-		console.log( minMax );
-		
 		this.myChart.config.options.scales.yAxes[0].ticks.min = minMax.min;
 		this.myChart.config.options.scales.yAxes[0].ticks.max = minMax.max;
 
@@ -62,7 +59,7 @@ export default class BarChart extends React.Component {
 		var minMax = this.getMinMax( this.props.data );
 
 		this.myChart = new Chart(this.canvasRef.current, {
-		  type: 'bar',
+		  type: this.props.chartType,
 		  options: {
 			maintainAspectRatio: false,
 			scales: {

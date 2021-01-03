@@ -1,4 +1,4 @@
-import React, { setState, Component } from 'react';
+import React, { Component } from 'react';
 import { Form, Button } from "react-bootstrap";
 import DataTable from './DataTable';
 import { get20Records, deleteRecord } from '../BackEndAPI';
@@ -29,11 +29,16 @@ export default class get20Documents extends Component{
         e.preventDefault();
         get20Records(this.state.date,this.state.state)
         .then( records => {
-            console.log(records);
-            let top20=records.data;
+
+			let top20=records.data;
             this.setState({
-                ...this.state, 
-                Covid19Data : top20 
+                ...this.state,
+                Covid19Data: top20.map( x => { 
+					return {
+						...x,
+						date: x.date.substring(0,10)
+                    };
+                })    
             })
         })
         .catch(function (error) {
@@ -58,7 +63,7 @@ export default class get20Documents extends Component{
     render(){
         return(
             <div>
-                <h3>Add Covid Data</h3>
+                <h3>Get 20 documents</h3>
                     <Form onSubmit ={(e) => this.onSubmit(e)}>
                         <Form.Group controlId = "Date">
                             <Form.Label>Date</Form.Label>

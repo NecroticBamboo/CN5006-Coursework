@@ -150,27 +150,27 @@ function Table({ columns, data, deleteRow }) {
             
             <ul className="pagination">
                 <li className="page-item" onClick={() => gotoPage(0)} disabled={!canPreviousPage}>
-                    <a className="page-link">First</a>
+                    <div className="page-link">First</div>
                 </li>
                 <li className="page-item" onClick={() => previousPage()} disabled={!canPreviousPage}>
-                    <a className="page-link">{'<'}</a>
+                    <div className="page-link">{'<'}</div>
                 </li>
                 <li className="page-item" onClick={() => nextPage()} disabled={!canNextPage}>
-                    <a className="page-link">{'>'}</a>
+                    <div className="page-link">{'>'}</div>
                 </li>
                 <li className="page-item" onClick={() => gotoPage(pageCount - 1)} disabled={!canNextPage}>
-                    <a className="page-link">Last</a>
+                    <div className="page-link">Last</div>
                 </li>
                 <li>
-                    <a className="page-link">
+                    <div className="page-link">
                         Page{' '}
                         <strong>
                             {pageIndex + 1} of {pageOptions.length}
                         </strong>{' '}
-                    </a>
+                    </div>
                 </li>
                 <li>
-                    <a className="page-link">
+                    <div className="page-link">
                         <input
                             className="form-control"
                             type="number"
@@ -181,7 +181,7 @@ function Table({ columns, data, deleteRow }) {
                             }}
                             style={{ width: '100px', height: '20px' }}
                         />
-                    </a>
+                    </div>
                 </li>{' '}
                 <select
                     className="form-control"
@@ -202,7 +202,7 @@ function Table({ columns, data, deleteRow }) {
     )
 }
 
-function DataTable({data}) {
+function DataTable({data,deleteRow}) {
     const columns = React.useMemo(
         () => [
 			{
@@ -229,7 +229,7 @@ function DataTable({data}) {
         []
     );
 	return (
-        <Table columns={columns} data={data} />
+        <Table columns={columns} data={data} deleteRow={deleteRow} />
     )
 }
 
