@@ -13,7 +13,6 @@ code {
 }
 
 
-
 /* Style to nav bar */
 .navigation-bar {
 
@@ -28,33 +27,39 @@ code {
   list-style-type: none;
   overflow: hidden;
   background-color: rgb(25, 158, 170);
+
 }
 
 .navigation-bar ul li {
   text-align: center;
   padding: 0px;
+
 }
 
+.app-title {
+  color: aliceblue;
+  font-size: 22px;
+  margin-left: -20%;
+  margin-right: 6%;
+  font-family:Arial, Helvetica, sans-serif;
+  font-weight: 500;
+}
 .navigation-bar ul li a {
   text-decoration: none;
   display: block;
   color: white;
-  padding: 8px 10px;
+  padding: 8px 10px ;
   border-radius: 10px;
   font-size: 15px;
-}
+  font-family:sans-serif;
 
-#covid-title {
-  color: aliceblue;
-  font-size: 23px;
-  margin-left: -15%;
-  padding-right: 50px;
 }
 
 li a:hover {
   color: black;
   background-color: rgb(79, 174, 180);
   border-radius: 10px;
+
 }
 li a:active {
   color: black;
@@ -67,7 +72,6 @@ li a:active {
 
 
 /* End of nav bar */
-
 
 /* Home page */
 
@@ -101,47 +105,18 @@ form label {
   font-weight: 700;
 }
 
-
 /* End of Form style */
 
-
-
 /* Show all data page */
-/* table, td, th {  
-  border: 1px outset black;
-  text-align: left;
-  color: black;
-} */
 
 tr:hover {
   background-color: rgb(255, 252, 252);
 }
 
-
-#edit-btn  {
-  color: white;
-  background-color: rgb(34, 169, 50);
-  padding: 6px 15px;
-  margin-top: 10px;
-  margin-left: 10px;
-  border-radius: 5px;
-
-}
-#delete-btn {
-  color: white;
-  background-color: rgb(211, 53, 53);
-  padding: 6px 15px;
-  margin-top: 10px;
-  margin-left: 10px;
-  border-radius: 5px;
-  border-right: none;
-}
-
-.link-button {
+.edit-link-button {
   display: block;
-  width: 115px;
-  height: 25px;
-  background: #4E9CAF;
+  height: 35px;
+  background: #299135;
   padding: 10px;
   text-align: center;
   border-radius: 5px;
@@ -150,19 +125,43 @@ tr:hover {
   line-height: 25px;
 }
 
+.edit-link-button:hover{
+
+  color: black;
+  text-decoration: none;
+  background-color: #46ab3dbb;
+}
+
+.edit-link-button:active{
+  background-color: aliceblue;
+}
+
+.delete-link-button {
+  display: block;
+  height: 35px;
+  background: #e01f1f;
+  padding: 10px;
+  text-align: center;
+  border-radius: 5px;
+  color: white;
+  font-weight: bold;
+  line-height: 25px;
+}
+
+.delete-link-button:hover{
+
+  color: black;
+  text-decoration: none;
+  background-color: #e01f1f93;
+}
+
+.delete-link-button:active{
+  background-color: aliceblue;
+}
+
 .title-size{
   font-size: 30px;
   background-color: rgb(126, 23, 23);
 }
 
-/* table {
-  border-collapse: collapse;
-  margin-left: 20%;
-}
 
-th, td {
-  padding: 2px 15px;
-  font-size: large;
-  font-weight: 700;
-
-} */

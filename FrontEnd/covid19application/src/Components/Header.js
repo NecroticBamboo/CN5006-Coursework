@@ -7,7 +7,7 @@ const Header = () =>{
             <nav  class = "navigation-bar">
                 
                 <ul>
-                    <li id="covid-title"> Covid-19 Tracker</li>
+                    <li class="app-title "> Covid-19 Tracker</li>
                     <li ><Link   to='/'>Home</Link></li>
                     <li><Link  to='/addCovid'>Add Covid</Link></li>
                     <li><Link to='/getAllRecords'>Show all Data</Link></li>

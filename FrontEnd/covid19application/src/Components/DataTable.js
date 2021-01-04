@@ -22,6 +22,11 @@ function GlobalFilter({
         setGlobalFilter(value || undefined)
     }, 200)
 
+
+    const editButton = {
+        backgroundColor :"black"
+    }
+
     return (
         <span>
             Search:{' '}
@@ -132,11 +137,11 @@ function Table({ columns, data, deleteRow }) {
                                 <td>
                                     <div class="container-fluid">
                                         <div class="row">    
-                                            <Link to={'/updateRecord/'+row.original._id} className="link-button col-sm-6">
+                                            <Link to={'/updateRecord/'+row.original._id}  className="edit-link-button col-sm-6" >
                                                 Edit
                                             </Link>
                                             
-                                            <button onClick={() => {deleteRow(row.original._id)}} class="link-button col-sm-6">
+                                            <button onClick={() => {deleteRow(row.original._id)}} className="delete-link-button col-sm-6" >
                                                 Delete
                                             </button>
                                         </div>
