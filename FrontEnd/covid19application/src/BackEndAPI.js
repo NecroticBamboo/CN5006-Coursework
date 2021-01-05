@@ -29,3 +29,7 @@ export function get20Records(date,state){
 export function getByStateAndCounty(state, county){
     return axios.get(url+"getByStateAndCounty/"+state+"/"+county);
 }
+
+export function getDeathsMore(deaths) {
+    return axios.get(url + "getDeathsMore/"+ deaths +"/")
+}
