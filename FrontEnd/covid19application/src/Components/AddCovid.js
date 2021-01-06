@@ -55,7 +55,7 @@ const Covid_Form = () =>{
             <Form onSubmit ={onSubmit} method = "Post">
                 <Form.Group controlId = "Date">
                     <Form.Label>Date</Form.Label>
-                    <Form.Control type = "date"  name ="date" required ={true} value ={state.date}   onChange ={handleChange} required/>
+                    <Form.Control type = "date"  name ="date" value ={state.date}   onChange ={handleChange} required/>
                 </Form.Group>
 
                 <Form.Group controlId = "County">
@@ -76,7 +76,7 @@ const Covid_Form = () =>{
                     <Form.Label>Deaths</Form.Label>
                     <Form.Control type = "number"  name ="deaths" value ={state.deaths} onChange ={handleChange} required/>
                 </Form.Group>
-                <Button  variant="info" size="lg" block="block" type="submit">Add Covid </Button>
+                <Button  variant="info" size="lg" block="block" type="submit" style ={{fontFamily:'Comic Sans MS'}}>Add Covid </Button>
                 
             </Form>
         </div>

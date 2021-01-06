@@ -24,7 +24,7 @@ export default class ComputerInfo extends React.Component{
     render(){
         return(
             <div>
-                <h1>Backend computer information</h1>
+                <h3>Backend computer information</h3>
                 <pre>{util.inspect(this.state.info,false,5)}</pre>
             </div>
         )

@@ -42,11 +42,10 @@ export default class getCasesAndDeaths  extends React.Component{
         });
     }
 	
-	
 	render() {
 		return(
 			<div>
-				<h1>Cases and deaths for a county and state</h1>
+				<h3>Cases and deaths for a county and state</h3>
 
 				<Form onSubmit ={(e) => this.onSubmit(e)}>
 					<Form.Group controlId = "County">
@@ -58,7 +57,7 @@ export default class getCasesAndDeaths  extends React.Component{
 						<Form.Label>State</Form.Label>
 						{renderStateSelector(this.state, e => this.handleChange(e))}
 					</Form.Group>
-					<Button variant="info" size="lg" block="block" type="submit">Refresh</Button>
+					<Button variant="info" size="lg" block="block" type="submit" style ={{fontFamily:'Comic Sans MS'}}>Refresh</Button>
 				</Form>
 				
 				<Analysis data={this.state.Covid19Data}/>

@@ -90,13 +90,13 @@ export default class Covid_UpdateRecord extends Component{
                 <h3> Update Covid data Id: {id}</h3>
 				
                 <Form onSubmit={ (e) => this.onSubmit(e)}>
-                    <Form.Group controlId="Date">
-                        <label>Date: </label>
+                    <Form.Group controlId="Date" >
+                        <label >Date: </label>
                         {/*<input className = "form-control" type="date" name = "date" value = {this.state.date} onChange = {this.handleChange}/>*/}
 						<div class="pl-3">{this.state.date}</div>
                     </Form.Group>
                     <Form.Group controlId="County">
-                        <label>County: </label>
+                        <label >County: </label>
                         {/*<input className = "form-control" type="text" name = "county" value = {this.state.county} onChange = {this.handleChange}/>*/}
 						<div class="pl-3">{this.state.county}</div>
                     </Form.Group>
@@ -114,7 +114,7 @@ export default class Covid_UpdateRecord extends Component{
                         <label>Deaths: </label>
                         <input className = "form-control" type="number" name = "deaths" value={this.state.deaths} onChange={(e) => this.handleChange(e)} required/>
                     </Form.Group>
-                    <Button variant="info" size="lg" block="block" type="submit">Update</Button>
+                    <Button variant="info" size="lg" block="block" type="submit" style ={{fontFamily:'Comic Sans MS'}}>Update</Button>
                 </Form>
 				<Banner show={show} updatedAt={this.state.updatedAt} text={"Last updated: "+this.state.updatedAt}/>
             </div>

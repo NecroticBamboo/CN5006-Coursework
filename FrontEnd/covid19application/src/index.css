@@ -15,11 +15,6 @@ code {
 
 /* Style to nav bar */
 
-.navigation-bar {
-
-  text-align: center;
-}
-
 .navigation-bar li {
   display: inline-block;
 }
@@ -29,21 +24,6 @@ code {
   overflow: hidden;
   background-color: rgb(25, 158, 170);
 
-}
-
-.navigation-bar ul li {
-  text-align: center;
-  padding: 0px;
-
-}
-
-.covid-title {
-  color: aliceblue;
-  font-size: 25px;
-  margin-left: -7%;
-  margin-right: 2%;
-  font-family:'consolas';
-  font-weight: 600;
 }
 .navigation-bar ul li a {
   text-decoration: none;
@@ -55,12 +35,20 @@ code {
   font-family: 'Comic Sans MS';
   font-weight: 500;
 
+
+}
+.covid-title {
+  color: aliceblue;
+  font-size: 25px;
+  margin-right: 2%;
+  font-family:'consolas';
+  font-weight: 600;
 }
 
 li a:hover {
   color: black;
-  background-color: rgb(79, 174, 180);
-  border-radius: 10px;
+  background-color: rgb(106, 183, 190);
+  border-radius: 8px;
 
 }
 li a:active {
@@ -79,10 +67,14 @@ li a:active {
 
 h1 {
   text-align:  center;
+  font-family: 'Comic Sans MS';
 }
 img {
-  position: relative;
-  margin-left: 32%;
+  margin-left: 30%;
+  position: absolute;
+  margin-top: 1%;
+  width: 40%;
+  text-align: center;
   border-radius: 20px;
 }
 
@@ -90,13 +82,15 @@ img {
 
 h3 {
   text-align: center;
+  font-family: 'Comic Sans MS';
+
 }
 form {
   margin-top: 30px;
   margin-left: 20%;
   margin-right: 20%;
   background-color: rgb(255, 255, 255);
-  border: 1px  solid black;
+  border: 1px  outset rgba(128, 128, 128, 0.314);
   border-radius: 10px;
 }
 
@@ -104,7 +98,13 @@ form label {
   color:black;
   margin-left: 10px;
   font-size: 20px;
-  font-weight: 700;
+  font-family: 'Comic Sans MS';
+  font-weight: 800;
+}
+
+option {
+    font-family: 'Comic Sans MS';
+
 }
 
 /* End of Form style */
@@ -166,9 +166,6 @@ tr:hover {
   background-color: aliceblue;
 }
 
-.title-size{
-  font-size: 30px;
-  background-color: rgb(126, 23, 23);
-}
+
 
 

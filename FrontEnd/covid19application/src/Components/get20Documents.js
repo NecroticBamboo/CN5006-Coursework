@@ -74,7 +74,7 @@ export default class get20Documents extends Component{
                             <Form.Label>State</Form.Label>
                             {renderStateSelector(this.state, (e) => this.handleChange(e) )}
                         </Form.Group>
-                        <Button variant="info" size="lg" block="block" type="submit">Refresh</Button>
+                        <Button variant="info" size="lg" block="block" type="submit" style ={{fontFamily:'Comic Sans MS'}}>Refresh</Button>
                     </Form>
                     <DataTable data={this.state.Covid19Data} editRow={ x => this.editRow(this, x) } deleteRow={ x => this.deleteRow(this, x) }/>
             </div>
