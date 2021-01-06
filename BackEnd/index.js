@@ -1,4 +1,6 @@
 var express = require('express');
+var os=require("os");
+
 let CovidInfo=require('./Covid19Information');
 let mongodbConnected=require('./MongoDBConnection');
 const cors=require('cors');
@@ -9,7 +11,8 @@ var bodyParser=require("body-parser");
 var corsOptions = {
     origin: '*',
     optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
-  }
+}
+
 app.use(cors(corsOptions));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:false}));
@@ -22,7 +25,7 @@ let shouldInit = false;
 
 if ( shouldInit ) {
 		
-	let stream = fs.createReadStream("Coviddata.csv");
+	let stream = fs.createReadStream("TestData.csv");
 	let csvData = [];
 
 	async function initCollection(csvData){
@@ -166,16 +169,27 @@ app.get('/getByStateAndCounty/:state/:county',async function(req,res){
     });
 });
 
-app.get('/getDeathsMore/:number',async function(req,res){
-    let number = req.params.number;
+app.get('/getCasesMore/:number',async function(req,res){
+    let number = parseInt(req.params.number,10);
 
-    await CovidInfo.find({deaths:{$gte:number}},function(err,docs){
+    await CovidInfo.find({cases:{$gt:number}},function(err,docs){
         res.json(docs);
     })
 });
 
 app.get('/getComputerInfo',function(req,res){
 
+    res.json({
+        tempDir: os.tmpdir(),
+        hostname: os.hostname(),
+        os: os.platform(),
+        uptime: os.uptime()/3600,
+        userInfo: os.userInfo(),
+        memory: os.totalmem()/1000000000,
+        freemem: os.freemem()/1000000000,
+        CPU: os.cpus(),
+        Network: os.networkInterfaces()
+    });
 });
 
 

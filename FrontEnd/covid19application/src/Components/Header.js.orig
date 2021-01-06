@@ -7,10 +7,18 @@ const Header = () =>{
             <nav  class = "navigation-bar">
                 
                 <ul>
-                    <li class="covid-title"> Covid-19 Tracker</li>
+<<<<<<< Updated upstream
+                    <li class="app-title "> Covid-19 Tracker</li>
+                    <li ><Link   to='/'>Home</Link></li>
+                    <li><Link  to='/addCovid'>Add Covid</Link></li>
+                    <li><Link to='/getAllRecords'>Show all Data</Link></li>
+                    {/* <li><Link to='/updateRecord'>Update Cases and Deaths</Link></li> */}
+=======
+                    <li id="covid-title"> Covid-19 Tracker</li>
                     <li><Link to='/'>Home</Link></li>
                     <li><Link to='/addCovid'>Add Record</Link></li>
                     <li><Link to='/getAllRecords'>Show all records</Link></li>
+>>>>>>> Stashed changes
                     <li><Link to='/getCasesAndDeaths'>Get Number of Cases and Deaths</Link></li>
                     <li><Link to='/get20Documents'>Get 20 Documents</Link></li>
                     <li><Link to='/getCasesGreater'>Cases Greater Than</Link></li>

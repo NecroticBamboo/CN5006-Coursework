@@ -8,7 +8,7 @@ const Covid_Form = () =>{
     const [state, setState] = useState({
         date: new Date().toString("yyyy-MM-dd"),
         county: "",
-        state: "NY",
+        state: "New York",
         cases: null,
         deaths: null,
     })
@@ -24,8 +24,7 @@ const Covid_Form = () =>{
     }
 
     const onSubmit = (e) => {
-        // alert("Total deaths so far: " + state.deaths)
-        console.log(state.date);
+        // console.log(state.date);
 
         e.preventDefault();
         const CovidData = {

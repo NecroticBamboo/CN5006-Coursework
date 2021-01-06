@@ -7,8 +7,8 @@ import Covid_UpdateRecord from './updateRecord';
 import getCasesAndDeaths from './getCasesAndDeaths';
 import deleteRecord from './deleteRecord';
 import get20Documents from './get20Documents';
-import getDeathsGreater from './getDeathsGreater';
-import getComputerInfo from './getComputerInfo';
+import getCasesGreater from './getCasesGreater';
+import ComputerInfo from './ComputerInfo';
 
 const Main = () =>{
     return(
@@ -23,8 +23,8 @@ const Main = () =>{
                 <Route path='/getCasesAndDeaths' component={getCasesAndDeaths}/>
                 <Route path='/deleteRecord/:id' component={deleteRecord}/>
                 <Route path='/get20Documents' component={get20Documents}/>
-                <Route path='/getDeathsGreater' component={getDeathsGreater}/>
-                <Route path='/getComputerInfo' component={getComputerInfo}/>
+                <Route path='/getCasesGreater' component={getCasesGreater}/>
+                <Route path='/ComputerInfo' component={ComputerInfo}/>
             </Switch>
         </main>
     );

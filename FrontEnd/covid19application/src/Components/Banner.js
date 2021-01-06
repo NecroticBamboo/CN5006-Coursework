@@ -4,6 +4,6 @@ export function Banner(props) {
   }
 
   return (
-	<div class="alert alert-success m-3" role="alert">{props.text}</div>
+	  <div class="alert alert-success m-3" role="alert">{props.text}</div>
   );
 }

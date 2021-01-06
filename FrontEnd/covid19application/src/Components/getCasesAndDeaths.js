@@ -34,6 +34,8 @@ export default class getCasesAndDeaths  extends React.Component{
                 ...this.state, 
                 Covid19Data : rec.map( x => { return {...x, date : x.date.substring(0,10)} } )
             });
+
+            
         })
         .catch(function (error) {
             console.log(error);
