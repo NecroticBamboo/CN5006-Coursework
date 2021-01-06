@@ -67,7 +67,7 @@ export default class get20Documents extends Component{
                     <Form onSubmit ={(e) => this.onSubmit(e)}>
                         <Form.Group controlId = "Date">
                             <Form.Label>Date</Form.Label>
-                            <Form.Control type = "date"  name ="date" value ={this.state.date} onChange ={ (e) => this.handleChange(e)}/>
+                            <Form.Control type = "date"  name ="date" value ={this.state.date} onChange ={ (e) => this.handleChange(e)} required/>
                         </Form.Group>
 
                         <Form.Group controlId ="State">

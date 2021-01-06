@@ -108,11 +108,11 @@ export default class Covid_UpdateRecord extends Component{
 
                     <Form.Group controlId="Cases">
                         <label>Cases: </label>
-                        <input className = "form-control" type="number" name = "cases" value={this.state.cases} onChange={(e) => this.handleChange(e)}/>
+                        <input className = "form-control" type="number" name = "cases" value={this.state.cases} onChange={(e) => this.handleChange(e)} required/>
                     </Form.Group>
                     <Form.Group controlId="Deaths">
                         <label>Deaths: </label>
-                        <input className = "form-control" type="number" name = "deaths" value={this.state.deaths} onChange={(e) => this.handleChange(e)}/>
+                        <input className = "form-control" type="number" name = "deaths" value={this.state.deaths} onChange={(e) => this.handleChange(e)} required/>
                     </Form.Group>
                     <Button variant="info" size="lg" block="block" type="submit">Update</Button>
                 </Form>

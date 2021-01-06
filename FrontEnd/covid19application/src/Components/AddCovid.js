@@ -2,6 +2,8 @@ import React, {useState} from 'react';
 import {addRecord} from '../BackEndAPI';
 import { Form, Button } from "react-bootstrap";
 
+
+
 // const datejs = require("datejs");
 
 const Covid_Form = () =>{
@@ -38,18 +40,27 @@ const Covid_Form = () =>{
         addRecord(CovidData);
     }
 
+    // Alert
+
+     const mySubmitHandler = (event) => {
+    event.preventDefault();
+    alert("You have successfully submitted data for " + state.county + " in "+ state.state +" !");
+  }
+
+  	let show = !(typeof state.addAt === "undefined");
+
     return(
-        <div style ={{marginTop:12}} >
+        <div onSubmit = {mySubmitHandler} style ={{marginTop:12}} >
             <h3>Add Covid Data</h3>
             <Form onSubmit ={onSubmit} method = "Post">
                 <Form.Group controlId = "Date">
                     <Form.Label>Date</Form.Label>
-                    <Form.Control type = "date"  name ="date" value ={state.date} onChange ={handleChange}/>
+                    <Form.Control type = "date"  name ="date" required ={true} value ={state.date}   onChange ={handleChange} required/>
                 </Form.Group>
 
                 <Form.Group controlId = "County">
                     <Form.Label>County</Form.Label>
-                    <Form.Control type = "text"  name ="county" value ={state.county} onChange ={handleChange}/>
+                    <Form.Control type = "text"  name ="county" value ={state.county} onChange ={handleChange} required/>
                 </Form.Group>
 
                 <Form.Group controlId ="State">
@@ -58,14 +69,14 @@ const Covid_Form = () =>{
                 </Form.Group>
                 <Form.Group controlId = "Cases">
                     <Form.Label>Cases</Form.Label>
-                    <Form.Control type = "number"  name ="cases" value ={state.cases} onChange ={handleChange}/>
+                    <Form.Control type = "number"  name ="cases" value ={state.cases} onChange ={handleChange} required/>
                 </Form.Group>
                    
                 <Form.Group controlId = "Deaths">
                     <Form.Label>Deaths</Form.Label>
-                    <Form.Control type = "number"  name ="deaths" value ={state.deaths} onChange ={handleChange}/>
+                    <Form.Control type = "number"  name ="deaths" value ={state.deaths} onChange ={handleChange} required/>
                 </Form.Group>
-                <Button variant="info" size="lg" block="block" type="submit">Add Covid </Button>
+                <Button  variant="info" size="lg" block="block" type="submit">Add Covid </Button>
                 
             </Form>
         </div>

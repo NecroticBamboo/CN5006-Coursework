@@ -14,6 +14,7 @@ code {
 
 
 /* Style to nav bar */
+
 .navigation-bar {
 
   text-align: center;
@@ -36,13 +37,13 @@ code {
 
 }
 
-.app-title {
+.covid-title {
   color: aliceblue;
-  font-size: 22px;
-  margin-left: -20%;
-  margin-right: 6%;
-  font-family:Arial, Helvetica, sans-serif;
-  font-weight: 500;
+  font-size: 25px;
+  margin-left: -7%;
+  margin-right: 2%;
+  font-family:'consolas';
+  font-weight: 600;
 }
 .navigation-bar ul li a {
   text-decoration: none;
@@ -50,8 +51,9 @@ code {
   color: white;
   padding: 8px 10px ;
   border-radius: 10px;
-  font-size: 15px;
-  font-family:sans-serif;
+  font-size: 18px;
+  font-family: 'Comic Sans MS';
+  font-weight: 500;
 
 }
 
@@ -117,11 +119,14 @@ tr:hover {
   display: block;
   height: 35px;
   background: #299135;
-  padding: 10px;
+  padding: 7px;
+  margin-left: -5px;
+  margin-right: 5px;
   text-align: center;
   border-radius: 5px;
   color: white;
-  font-weight: bold;
+  font-weight: 500;
+  font-family: 'Comic Sans MS';
   line-height: 25px;
 }
 
@@ -129,7 +134,7 @@ tr:hover {
 
   color: black;
   text-decoration: none;
-  background-color: #46ab3dbb;
+  background-color: #46ab3dee;
 }
 
 .edit-link-button:active{
@@ -140,11 +145,12 @@ tr:hover {
   display: block;
   height: 35px;
   background: #e01f1f;
-  padding: 10px;
+  padding: 7px;
   text-align: center;
   border-radius: 5px;
   color: white;
-  font-weight: bold;
+  font-family: 'Comic Sans MS';
+  font-weight: 500;
   line-height: 25px;
 }
 
@@ -152,7 +158,8 @@ tr:hover {
 
   color: black;
   text-decoration: none;
-  background-color: #e01f1f93;
+  background-color: #e01f1fc3;
+
 }
 
 .delete-link-button:active{

@@ -65,7 +65,7 @@ export default class getDeathsGreater extends Component{
                     <Form onSubmit ={(e) => this.onSubmit(e)}>
                         <Form.Group controlId = "Date">
                             <Form.Label>Number</Form.Label>
-                            <Form.Control type = "number"  name ="number" value ={this.state.number} onChange ={ (e) => this.handleChange(e)}/>
+                            <Form.Control type = "number"  name ="number" value ={this.state.number} onChange ={ (e) => this.handleChange(e)} required/>
                         </Form.Group>
 
                         {/* <Form.Group controlId ="State">

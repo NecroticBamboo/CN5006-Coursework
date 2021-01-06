@@ -141,9 +141,9 @@ function Table({ columns, data, deleteRow }) {
                                                 Edit
                                             </Link>
                                             
-                                            <button onClick={() => {deleteRow(row.original._id)}} className="delete-link-button col-sm-6" >
+                                            <Link onClick={() => { if ( window.confirm('Are you sure you wish to delete this data?'))  deleteRow(row.original._id) }} className="delete-link-button col-sm-6" >
                                                 Delete
-                                            </button>
+                                            </Link>
                                         </div>
                                     </div>
                                 </td>
