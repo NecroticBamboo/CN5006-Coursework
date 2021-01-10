@@ -53,7 +53,7 @@ export default class BarChart extends React.Component {
 		this.myChart.data.labels = this.props.data.map(d => d.label);
 		this.myChart.data.datasets[0].data = minMax.values;
 		this.myChart.update();
-	  }
+	}
 
 	componentDidMount() {
 		var minMax = this.getMinMax( this.props.data );

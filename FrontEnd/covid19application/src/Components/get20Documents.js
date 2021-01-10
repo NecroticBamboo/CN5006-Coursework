@@ -76,7 +76,7 @@ export default class get20Documents extends Component{
                         </Form.Group>
                         <Button variant="info" size="lg" block="block" type="submit" style ={{fontFamily:'Comic Sans MS'}}>Refresh</Button>
                     </Form>
-                    <DataTable data={this.state.Covid19Data} editRow={ x => this.editRow(this, x) } deleteRow={ x => this.deleteRow(this, x) }/>
+                    <DataTable data={this.state.Covid19Data} deleteRow={ x => this.deleteRow(this, x) }/>
             </div>
         );
     };

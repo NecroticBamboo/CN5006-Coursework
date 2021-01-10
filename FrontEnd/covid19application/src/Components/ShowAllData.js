@@ -27,17 +27,6 @@ export default class showAllData extends Component{
             console.log(error);
         });
     }
-     
-
-    editRow(obj, id){
-        
-        // axios.put(url +" Update Covid record" + id)
-        // .then(res => {
-        // this.setState({items: res.data});
-        // this.props.history.push('/items');
-        // })
-        // .catch(err => console.log(err));
-    }
 
     deleteRow(obj, id){
         
@@ -56,7 +45,7 @@ export default class showAllData extends Component{
 
     render() {
         return (
-            <DataTable data={this.state.Covid19Data} editRow={ x => this.editRow(this, x) } deleteRow={ x => this.deleteRow(this, x) }/>
+            <DataTable data={this.state.Covid19Data} deleteRow={ x => this.deleteRow(this, x) }/>
         )
     }
 

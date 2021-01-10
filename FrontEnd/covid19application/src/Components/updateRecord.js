@@ -4,7 +4,7 @@ import { Form, Button } from "react-bootstrap";
 import { Banner } from "./Banner";
 
 export default class Covid_UpdateRecord extends Component{
-        constructor(props) {
+    constructor(props) {
         super(props);
 
         let id = this.props.match.params.id;
@@ -35,12 +35,6 @@ export default class Covid_UpdateRecord extends Component{
         return ""+now.getDate()+"/"+this.pad(now.getMonth()+1,2)+"/"+now.getFullYear();
     }
 
-	parseDate( date ) {
-		var dmy = date.split("/");
-		var d = new Date( dmy[2], dmy[1]-1, dmy[0] );
-		return d;
-	}
-	
     pad(num, size) {
         var s = "000000000" + num;
         return s.substr(s.length-size);
@@ -80,6 +74,12 @@ export default class Covid_UpdateRecord extends Component{
 		});
     }
 
+    parseDate( date ) {
+        var dmy = date.split("/");
+        var d = new Date( dmy[2], dmy[1]-1, dmy[0] );
+        return d;
+    }
+ 
     render(){
         let id=this.state._id;
 
@@ -90,19 +90,18 @@ export default class Covid_UpdateRecord extends Component{
                 <h3> Update Covid data Id: {id}</h3>
 				
                 <Form onSubmit={ (e) => this.onSubmit(e)}>
-                    <Form.Group controlId="Date" >
-                        <label >Date: </label>
-                        {/*<input className = "form-control" type="date" name = "date" value = {this.state.date} onChange = {this.handleChange}/>*/}
+                    <Form.Group controlId="Date">
+                        <label>Date: </label>
 						<div class="pl-3">{this.state.date}</div>
                     </Form.Group>
+
                     <Form.Group controlId="County">
-                        <label >County: </label>
-                        {/*<input className = "form-control" type="text" name = "county" value = {this.state.county} onChange = {this.handleChange}/>*/}
+                        <label>County: </label>
 						<div class="pl-3">{this.state.county}</div>
                     </Form.Group>
+
                     <Form.Group controlId="State">
                         <label>State:</label>
-                        {/*renderStateSelector(this.state,this.handleChange)*/}
 						<div class="pl-3">{this.state.state}</div>
                     </Form.Group>
 
@@ -110,6 +109,7 @@ export default class Covid_UpdateRecord extends Component{
                         <label>Cases: </label>
                         <input className = "form-control" type="number" name = "cases" value={this.state.cases} onChange={(e) => this.handleChange(e)} required/>
                     </Form.Group>
+                    
                     <Form.Group controlId="Deaths">
                         <label>Deaths: </label>
                         <input className = "form-control" type="number" name = "deaths" value={this.state.deaths} onChange={(e) => this.handleChange(e)} required/>

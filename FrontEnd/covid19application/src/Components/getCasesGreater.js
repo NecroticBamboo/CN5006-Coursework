@@ -63,18 +63,13 @@ export default class getDeathsGreater extends Component{
             <div>
                 <h3>Cases greater than...</h3>
                     <Form onSubmit ={(e) => this.onSubmit(e)}>
-                        <Form.Group controlId = "Date">
+                        <Form.Group controlId = "Cases">
                             <Form.Label>Number</Form.Label>
                             <Form.Control type = "number"  name ="number" value ={this.state.number} onChange ={ (e) => this.handleChange(e)} required/>
                         </Form.Group>
-
-                        {/* <Form.Group controlId ="State">
-                            <Form.Label>State</Form.Label>
-                            {renderStateSelector(this.state, (e) => this.handleChange(e) )}
-                        </Form.Group> */}
                         <Button variant="info" size="lg" block="block" type="submit">Refresh</Button>
                     </Form>
-                    <DataTable data={this.state.Covid19Data} editRow={ x => this.editRow(this, x) } deleteRow={ x => this.deleteRow(this, x) }/>
+                    <DataTable data={this.state.Covid19Data} deleteRow={ x => this.deleteRow(this, x) }/>
             </div>
         );
     };

@@ -21,7 +21,7 @@ const fs = require("fs");
 const fastcsv = require("fast-csv");
 const datejs = require("datejs");
 
-let shouldInit = false;
+let shouldInit = true;
 
 if ( shouldInit ) {
 		

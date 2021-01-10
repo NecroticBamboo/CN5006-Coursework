@@ -7,9 +7,6 @@ import { Link } from 'react-router-dom';
 
 // see https://www.freakyjolly.com/react-table-tutorial/#.X-9rBNj7SHs 
 
-
-// const url = '/updateRecord/'+data._id;
-
 // Define a default UI for filtering
 function GlobalFilter({
     preGlobalFilteredRows,
@@ -21,11 +18,6 @@ function GlobalFilter({
     const onChange = useAsyncDebounce(value => {
         setGlobalFilter(value || undefined)
     }, 200)
-
-
-    const editButton = {
-        backgroundColor :"black"
-    }
 
     return (
         <span>
@@ -233,6 +225,7 @@ function DataTable({data,deleteRow}) {
         ],
         []
     );
+    
 	return (
         <Table columns={columns} data={data} deleteRow={deleteRow} />
     )

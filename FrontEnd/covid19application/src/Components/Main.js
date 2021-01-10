@@ -5,7 +5,6 @@ import AddCovid from './AddCovid';
 import showAllData from './ShowAllData';
 import Covid_UpdateRecord from './updateRecord';
 import getCasesAndDeaths from './getCasesAndDeaths';
-import deleteRecord from './deleteRecord';
 import get20Documents from './get20Documents';
 import getCasesGreater from './getCasesGreater';
 import ComputerInfo from './ComputerInfo';
@@ -21,7 +20,6 @@ const Main = () =>{
                 <Route path='/getAllRecords' component={showAllData}/>
                 <Route path='/updateRecord/:id' component={Covid_UpdateRecord}/>
                 <Route path='/getCasesAndDeaths' component={getCasesAndDeaths}/>
-                <Route path='/deleteRecord/:id' component={deleteRecord}/>
                 <Route path='/get20Documents' component={get20Documents}/>
                 <Route path='/getCasesGreater' component={getCasesGreater}/>
                 <Route path='/ComputerInfo' component={ComputerInfo}/>
