@@ -30,6 +30,10 @@ export function getByStateAndCounty(state, county){
     return axios.get(url+"getByStateAndCounty/"+state+"/"+county);
 }
 
+export function getDeathsAndCases(state, county){
+    return axios.get(url+"getDeathsAndCases/"+state+"/"+county);
+}
+
 export function getCasesMore(number){
     return axios.get(url+"getCasesMore/"+number);
 }

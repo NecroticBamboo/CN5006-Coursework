@@ -25,7 +25,7 @@ let shouldInit = true;
 
 if ( shouldInit ) {
 		
-	let stream = fs.createReadStream("TestData.csv");
+	let stream = fs.createReadStream("Coviddata.csv");
 	let csvData = [];
 
 	async function initCollection(csvData){
@@ -132,22 +132,34 @@ app.post('/deleteRecord/:_id',async function(req,res){
     })
 });
 
-app.get('/showDeaths/:state/:county',async function(req,res){
+app.get('/getDeathsAndCases/:state/:county',async function(req,res){
     let state = req.params.state;
     let county = req.params.county;
 
-    await CovidInfo.find({state:state,county:county},function(err,docs){
-        let deaths = 0;
-        let cases = 0;
-
-        for (let index = 0; index < docs.length-1; index++) {
-            deaths=deaths+docs[index].deaths;
-            cases=cases+docs[index].cases;
+    var pipeline = [
+        {
+          '$match': {
+            'state': state, 
+            'county': county
+          }
+        }, {
+          '$group': {
+            '_id': {
+              'state': '$state', 
+              'county': '$county'
+            }, 
+            'deaths': {
+              '$sum': '$deaths'
+            }, 
+            'cases': {
+              '$sum': '$cases'
+            }
+          }
         }
-        console.log(deaths);
-        console.log(cases);
-        
-        res.json({deaths: deaths, cases: cases});
+      ];
+
+    await CovidInfo.aggregate(pipeline ,function(err,docs){
+        res.json({deaths: docs[0].deaths, cases: docs[0].cases});
     })
 });
 
